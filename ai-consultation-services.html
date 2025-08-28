@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganConsult - AI & Machine Learning Consultation Services</title>
+    <meta name="description" content="Expert AI & Machine Learning consultation services by Ahmet Dogan. Strategic AI implementation, enterprise automation, and data-driven transformation aligned with Vision 2030.">
+    
+    <!-- Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/consult-modern-theme.css">
+    
+    <style>
+        :root {
+            --executive-primary: #1a1a1a;
+            --executive-secondary: #2a2a2a;
+            --executive-accent: #ffd700;
+            --executive-accent-dark: #b8860b;
+            --executive-text: #ffffff;
+            --executive-text-muted: #c0c0c0;
+            --executive-text-light: #e0e0e0;
+            --executive-border: rgba(255, 215, 0, 0.3);
+            --executive-glass: rgba(255, 255, 255, 0.1);
+            --executive-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            --executive-gradient: linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a);
+            --executive-gold-gradient: linear-gradient(135deg, #ffd700, #b8860b);
+            --executive-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--executive-gradient);
+            color: var(--executive-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .executive-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--executive-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .executive-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--executive-text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--executive-accent);
+        }
+
+        /* Hero Section */
+        .service-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--executive-accent);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .service-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .service-subtitle {
+            font-size: 1.5rem;
+            color: var(--executive-text-light);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-description {
+            font-size: 1.2rem;
+            color: var(--executive-text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--executive-transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-primary {
+            background: var(--executive-gold-gradient);
+            color: var(--executive-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--executive-accent);
+            border: 2px solid var(--executive-border);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--executive-shadow);
+        }
+
+        /* Service Details Sections */
+        .service-section {
+            padding: 80px 0;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Approach Grid */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .approach-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: var(--executive-transition);
+        }
+
+        .approach-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--executive-shadow);
+            border-color: var(--executive-accent);
+        }
+
+        .approach-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--executive-gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--executive-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 1rem;
+        }
+
+        .approach-description {
+            color: var(--executive-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--executive-gold-gradient);
+            color: var(--executive-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--executive-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Deliverables Section */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .deliverable-item {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .deliverable-icon {
+            font-size: 2rem;
+            color: var(--executive-accent);
+            margin-bottom: 1rem;
+        }
+
+        .deliverable-title {
+            font-weight: 600;
+            color: var(--executive-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .deliverable-description {
+            color: var(--executive-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            color: var(--executive-text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="executive-nav">
+        <div class="nav-container">
+            <a href="index.html" class="executive-logo">DoganConsult</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Profile</a>
+                <a href="consultation-booking.html" class="nav-link">Book Consultation</a>
+                <a href="index-tech-advisory.html" class="nav-link">Tech Advisory</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="service-badge">AI & Machine Learning Excellence</div>
+            <h1 class="service-title">AI Implementation & Strategy</h1>
+            <p class="service-subtitle">Transforming Organizations Through Intelligent Automation</p>
+            <p class="service-description">
+                Strategic AI consultation services that drive measurable business value while ensuring ethical implementation and regulatory compliance. From enterprise intelligence to predictive analytics, we deliver AI solutions aligned with Vision 2030 objectives.
+            </p>
+            <div class="hero-cta">
+                <a href="consultation-booking.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i>
+                    Schedule AI Consultation
+                </a>
+                <a href="#approach" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i>
+                    Learn Our Approach
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Approach Section -->
+    <section class="service-section" id="approach">
+        <div class="section-container">
+            <h2 class="section-title">Our AI Implementation Approach</h2>
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="approach-title">Business Value Assessment</h3>
+                    <p class="approach-description">
+                        We begin by identifying high-impact AI opportunities within your organization, focusing on areas that deliver measurable ROI and competitive advantage while aligning with your strategic objectives.
+                    </p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="approach-title">Technical Feasibility Analysis</h3>
+                    <p class="approach-description">
+                        Comprehensive evaluation of your current technology infrastructure, data quality, and organizational readiness to ensure successful AI implementation with minimal disruption.
+                    </p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="approach-title">Ethical AI Framework</h3>
+                    <p class="approach-description">
+                        Establishing robust AI governance protocols that ensure responsible deployment, regulatory compliance, and transparent decision-making processes throughout your organization.
+                    </p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="approach-title">Scalable Implementation</h3>
+                    <p class="approach-description">
+                        Designing AI solutions that scale with your business growth, utilizing cloud-native architectures and modern MLOps practices for sustainable long-term success.
+                    </p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="approach-title">Change Management</h3>
+                    <p class="approach-description">
+                        Comprehensive training and change management programs that ensure smooth adoption and maximize the value of your AI investments across all organizational levels.
+                    </p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="approach-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="approach-title">Continuous Optimization</h3>
+                    <p class="approach-description">
+                        Ongoing monitoring, performance optimization, and model refinement to ensure your AI systems continue delivering value and adapting to changing business needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Process -->
+    <section class="service-section">
+        <div class="section-container">
+            <h2 class="section-title">AI Implementation Process</h2>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Discovery & Assessment</h3>
+                        <p class="timeline-description">
+                            Comprehensive analysis of your business processes, data landscape, and AI readiness. We identify high-value use cases and assess technical requirements for successful implementation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Strategic Planning</h3>
+                        <p class="timeline-description">
+                            Development of a comprehensive AI strategy including technology roadmap, resource requirements, timeline, and success metrics aligned with your business objectives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Proof of Concept</h3>
+                        <p class="timeline-description">
+                            Implementation of a targeted proof of concept to validate the AI approach, demonstrate value, and refine the solution before full-scale deployment.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Infrastructure Preparation</h3>
+                        <p class="timeline-description">
+                            Setting up the necessary AI infrastructure, data pipelines, and security frameworks to support enterprise-grade AI operations with scalability and reliability.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Full Implementation</h3>
+                        <p class="timeline-description">
+                            Deployment of the complete AI solution with comprehensive testing, user training, and change management to ensure smooth adoption across your organization.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">6</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Optimization & Support</h3>
+                        <p class="timeline-description">
+                            Ongoing monitoring, performance optimization, and support to maximize ROI and ensure your AI systems continue delivering value as your business evolves.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section class="service-section">
+        <div class="section-container">
+            <h2 class="section-title">What You Receive</h2>
+            <div class="deliverables-grid">
+                <div class="deliverable-item">
+                    <div class="deliverable-icon">??</div>
+                    <h3 class="deliverable-title">AI Strategy Document</h3>
+                    <p class="deliverable-description">Comprehensive roadmap with implementation timeline and success metrics</p>
+                </div>
+
+                <div class="deliverable-item">
+                    <div class="deliverable-icon">??</div>
+                    <h3 class="deliverable-title">Technical Architecture</h3>
+                    <p class="deliverable-description">Detailed technical specifications and infrastructure requirements</p>
+                </div>
+
+                <div class="deliverable-item">
+                    <div class="deliverable-icon">??</div>
+                    <h3 class="deliverable-title">ROI Analysis</h3>
+                    <p class="deliverable-description">Financial projections and business case for AI investments</p>
+                </div>
+
+                <div class="deliverable-item">
+                    <div class="deliverable-icon">???</div>
+                    <h3 class="deliverable-title">Risk Assessment</h3>
+                    <p class="deliverable-description">Comprehensive risk analysis and mitigation strategies</p>
+                </div>
+
+                <div class="deliverable-item">
+                    <div class="deliverable-icon">??</div>
+                    <h3 class="deliverable-title">Training Plan</h3>
+                    <p class="deliverable-description">Structured training program for your team and stakeholders</p>
+                </div>
+
+                <div class="deliverable-item">
+                    <div class="deliverable-icon">??</div>
+                    <h3 class="deliverable-title">Governance Framework</h3>
+                    <p class="deliverable-description">AI governance policies and ethical guidelines for responsible deployment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-section">
+        <div class="section-container">
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Transform with AI?</h2>
+                <p class="cta-description">
+                    Schedule a consultation to discuss how AI can drive your digital transformation and business growth. 
+                    Let's explore the opportunities and develop a strategy that delivers measurable results.
+                </p>
+                <div class="hero-cta">
+                    <a href="consultation-booking.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Book AI Consultation
+                    </a>
+                    <a href="mailto:ahmet.dogan@doganhub.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Direct Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--executive-secondary); padding: 3rem 0; text-align: center; border-top: 1px solid var(--executive-border);">
+        <div class="section-container">
+            <p style="color: var(--executive-text-muted); margin-bottom: 1rem;">
+                © 2025 DoganConsult | Elite ICT Executive Services
+            </p>
+            <p style="color: var(--executive-text-muted);">
+                Ahmet Do?an • +966-500-666-084 • ahmet.dogan@doganhub.com
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

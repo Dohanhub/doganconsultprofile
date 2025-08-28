@@ -1,0 +1,100 @@
+/* Enhanced Dropdown Menu Styles */
+
+/* Submenu styling */
+.submenu {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: var(--doganhub-navy);
+    min-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.submenu:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li {
+    margin: 0;
+}
+
+.dropdown a {
+    padding: 12px 18px;
+    white-space: nowrap;
+    display: block;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.dropdown li:last-child a {
+    border-bottom: none;
+}
+
+.dropdown a:hover {
+    background-color: var(--doganhub-dark-blue);
+    padding-left: 22px;
+}
+
+/* Active dropdown item */
+.dropdown a.active {
+    background-color: rgba(124, 203, 220, 0.2);
+    color: var(--doganhub-turquoise);
+}
+
+/* RTL Support for dropdowns */
+body.rtl .dropdown {
+    left: auto;
+    right: 0;
+}
+
+body.rtl .dropdown a:hover {
+    padding-left: 18px;
+    padding-right: 22px;
+}
+
+/* Special styles for mobile */
+@media screen and (max-width: 768px) {
+    .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: rgba(21, 45, 70, 0.5);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border: none;
+    }
+    
+    .submenu.active .dropdown {
+        max-height: 500px;
+    }
+    
+    .dropdown a {
+        padding-left: 30px;
+    }
+    
+    body.rtl .dropdown a {
+        padding-left: 18px;
+        padding-right: 30px;
+    }
+}

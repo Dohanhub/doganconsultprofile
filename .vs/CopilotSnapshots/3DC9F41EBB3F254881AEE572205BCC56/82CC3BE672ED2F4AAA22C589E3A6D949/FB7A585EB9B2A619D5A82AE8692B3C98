@@ -1,0 +1,117 @@
+﻿// Lightweight 3D Showcase Component
+class LightShowcase3D {
+  constructor(containerId, images = []) {
+    this.container = document.getElementById(containerId);
+    this.images = images;
+    this.currentIndex = 0;
+    this.init();
+  }
+
+  async init() {
+    if (!this.container) return;
+    
+    try {
+      // Create Three.js scene
+      this.scene = new THREE.Scene();
+      this.camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+      this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      
+      // Basic setup
+      this.renderer.setSize(400, 400);
+      this.container.appendChild(this.renderer.domElement);
+      
+      // Simple lighting
+      const light = new THREE.AmbientLight(0xffffff, 0.5);
+      this.scene.add(light);
+      
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight.position.set(0, 1, 1);
+      this.scene.add(directionalLight);
+      
+      // Create sphere
+      this.createSphere();
+      
+      // Position camera
+      this.camera.position.z = 5;
+      
+      // Start animation
+      this.animate();
+      
+      // Add event listeners
+      this.addEventListeners();
+      
+    } catch (error) {
+      console.error('Error initializing 3D showcase:', error);
+    }
+  }
+  
+  createSphere() {
+    const geometry = new THREE.SphereGeometry(3, 32, 32);
+    geometry.scale(-1, 1, 1);
+    
+    // Simple material
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x3b82f6,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.8
+    });
+    
+    this.sphere = new THREE.Mesh(geometry, material);
+    this.scene.add(this.sphere);
+  }
+  
+  addEventListeners() {
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    
+    this.container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+    
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging || !this.sphere) return;
+      
+      const deltaX = e.clientX - previousMousePosition.x;
+      const deltaY = e.clientY - previousMousePosition.y;
+      
+      this.sphere.rotation.y += deltaX * 0.01;
+      this.sphere.rotation.x += deltaY * 0.01;
+      
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+    
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      const width = this.container.clientWidth;
+      const height = this.container.clientHeight;
+      
+      this.camera.aspect = width / height;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(width, height);
+    });
+  }
+  
+  animate() {
+    requestAnimationFrame(() => this.animate());
+    
+    if (this.sphere && !this.isDragging) {
+      this.sphere.rotation.y += 0.005;
+    }
+    
+    this.renderer.render(this.scene, this.camera);
+  }
+}
+
+// Initialize on page load - will be initialized from index.html
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if there's a container with the default ID, otherwise don't auto-initialize
+  if (document.getElementById('techShowcase')) {
+    const showcase = new LightShowcase3D('techShowcase');
+  }
+});

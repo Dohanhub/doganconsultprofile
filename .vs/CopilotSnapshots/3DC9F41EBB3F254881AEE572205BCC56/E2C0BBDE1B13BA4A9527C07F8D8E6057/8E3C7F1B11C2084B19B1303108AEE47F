@@ -1,0 +1,13 @@
+﻿
+(function(){
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang==='ar'?'rtl':'ltr');
+    localStorage.setItem('site_lang', lang);
+  }
+  const saved = localStorage.getItem('site_lang');
+  setLang(saved || 'en');
+  document.querySelectorAll('[data-lang]').forEach(btn => {
+    btn.addEventListener('click', e => setLang(btn.getAttribute('data-lang')));
+  });
+})();

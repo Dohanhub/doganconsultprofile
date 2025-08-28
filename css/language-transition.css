@@ -1,0 +1,94 @@
+/* Language Transition Effects */
+
+/* Language Transition Effect */
+.language-transition * {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.language-transition {
+    position: relative;
+}
+
+.language-transition::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    opacity: 0;
+    animation: language-flash 0.5s ease-out;
+    z-index: 9999;
+}
+
+@keyframes language-flash {
+    0% { opacity: 0; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0; }
+}
+
+/* Enhanced RTL Support for Arabic */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+body.rtl .header-content {
+    flex-direction: row-reverse;
+}
+
+body.rtl nav ul li {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+body.rtl .language-selector {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+body.rtl .language-selector::after {
+    right: auto;
+    left: 12px;
+}
+
+body.rtl .submenu .dropdown {
+    left: auto;
+    right: 0;
+}
+
+body.rtl .dropdown a {
+    text-align: right;
+}
+
+body.rtl .dropdown a:hover {
+    padding-left: 18px;
+    padding-right: 22px;
+}
+
+/* Improve text rendering for all languages */
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Specific font adjustments for Arabic */
+html[lang="ar"] * {
+    font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif !important;
+    letter-spacing: 0;
+}
+
+/* Ensure buttons and interactive elements look good in all languages */
+button, 
+a.btn, 
+.btn, 
+input[type="submit"], 
+input[type="button"] {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,303 @@
+/**
+ * Memorial Page CSS
+ * For Ahmet Dogan Website - Omer Memorial
+ * Using DOGANHUB color palette: #FCFCFC, #152D46, #0D253E, #A1D4E0, #7CCBDC
+ */
+
+/* Memorial Hero Section */
+.memorial-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('../images/memorial-bg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FCFCFC;
+    overflow: hidden;
+}
+
+.memorial-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(13, 37, 62, 0.75), rgba(13, 37, 62, 0.85));
+}
+
+.memorial-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.memorial-title {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.memorial-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.memorial-quote {
+    margin-top: 40px;
+}
+
+.memorial-quote blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.6;
+    position: relative;
+    padding: 0 40px;
+}
+
+.memorial-quote blockquote:before,
+.memorial-quote blockquote:after {
+    content: '"';
+    font-size: 3rem;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.memorial-quote blockquote:before {
+    top: -20px;
+    left: 0;
+}
+
+.memorial-quote blockquote:after {
+    bottom: -40px;
+    right: 0;
+}
+
+/* Memorial Content Section */
+.memorial-content {
+    padding: 80px 0;
+    background-color: #FCFCFC;
+}
+
+.memorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.memorial-image {
+    position: relative;
+    padding: 20px;
+}
+
+.memorial-portrait {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.memorial-portrait:hover {
+    transform: scale(1.02);
+}
+
+.memorial-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #7CCBDC;
+    border-radius: 10px;
+    transform: translate(15px, 15px);
+    z-index: 1;
+}
+
+.memorial-text {
+    padding: 20px 0;
+}
+
+.memorial-text h2 {
+    color: #0D253E;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+    border-bottom: 2px solid #7CCBDC;
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.memorial-description p {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.memorial-tribute, 
+.memorial-prayer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #7CCBDC;
+    border-radius: 0 5px 5px 0;
+}
+
+.memorial-tribute h3, 
+.memorial-prayer h3 {
+    color: #152D46;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.memorial-tribute p, 
+.memorial-prayer p {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.memorial-prayer p {
+    font-style: italic;
+}
+
+/* Memorial Gallery */
+.memorial-gallery {
+    margin-top: 80px;
+}
+
+.memorial-gallery h3 {
+    color: #0D253E;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    position: relative;
+}
+
+.memorial-gallery h3:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #7CCBDC;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    aspect-ratio: 1/1;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.gallery-placeholder:after {
+    content: 'Photo';
+    font-family: Arial, sans-serif;
+    opacity: 0.7;
+}
+
+/* RTL Support */
+html[dir="rtl"] .memorial-frame {
+    transform: translate(-15px, 15px);
+}
+
+html[dir="rtl"] .memorial-tribute, 
+html[dir="rtl"] .memorial-prayer {
+    border-left: none;
+    border-right: 4px solid #7CCBDC;
+    border-radius: 5px 0 0 5px;
+}
+
+html[dir="rtl"] .memorial-quote blockquote:before {
+    left: auto;
+    right: 0;
+}
+
+html[dir="rtl"] .memorial-quote blockquote:after {
+    right: auto;
+    left: 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .memorial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .memorial-image {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .memorial-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .memorial-hero {
+        min-height: 350px;
+    }
+    
+    .memorial-title {
+        font-size: 2.2rem;
+    }
+    
+    .memorial-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .memorial-quote blockquote {
+        font-size: 1.4rem;
+        padding: 0 30px;
+    }
+    
+    .memorial-text h2 {
+        font-size: 2rem;
+    }
+    
+    .gallery-container {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}

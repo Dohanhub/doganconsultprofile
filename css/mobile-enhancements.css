@@ -1,0 +1,293 @@
+/* Enhanced Mobile Responsiveness Styles for All Platforms */
+
+/* Base Mobile Optimization */
+@media only screen and (max-width: 768px) {
+    html {
+        touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Improved tap targets for mobile */
+    button, 
+    a, 
+    input, 
+    select, 
+    .btn, 
+    .nav-link {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+        min-width: 44px;
+    }
+    
+    /* Fix for iOS form elements */
+    input, select, textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+    
+    /* Fix for Android momentum scrolling */
+    .scrollable-container {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: scroll;
+    }
+    
+    /* Mobile-optimized layout adjustments */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Responsive navigation adjustments */
+    .header-container {
+        padding: 10px 15px;
+    }
+    
+    /* Improved mobile menu */
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--doganhub-navy);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        display: none;
+        z-index: 1000;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+        width: 100%;
+    }
+    
+    nav ul li a {
+        padding: 12px 20px;
+        border-radius: 0;
+    }
+    
+    /* Mobile section improvements */
+    .section-title h2 {
+        font-size: 24px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-img {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    
+    .about-text {
+        width: 100%;
+    }
+    
+    /* Mobile card and grid improvements */
+    .research-grid,
+    .cert-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Mobile form improvements */
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .contact-form,
+    .contact-info {
+        width: 100%;
+    }
+    
+    /* Mobile footer improvements */
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Mobile chat widget */
+    .chat-container {
+        width: 100%;
+        height: 80vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}
+
+/* iOS-Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* iOS-only CSS */
+    .hero {
+        background-attachment: scroll; /* Fix for iOS parallax issue */
+    }
+    
+    /* Fix for iOS Safari 100vh issue */
+    .full-height {
+        height: -webkit-fill-available;
+    }
+    
+    /* Prevent element highlighting on iOS */
+    a, button, input, select, textarea {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Android-Specific Fixes */
+@supports not (-webkit-touch-callout: none) {
+    /* Android-only CSS */
+    input, textarea {
+        font-size: 16px; /* Prevent zoom on Android */
+    }
+    
+    /* Fix for Android overflow issues */
+    .overflow-container {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+/* Huawei-Specific Fixes */
+@media screen and (max-width: 768px) {
+    /* General fixes for Huawei devices */
+    .video-container {
+        background-color: #000; /* Ensure proper video background on Huawei devices */
+    }
+    
+    /* Smoother animations for Huawei devices */
+    .animate {
+        will-change: transform, opacity;
+    }
+}
+
+/* Interactive Elements Enhancements */
+@media (hover: hover) {
+    /* Only apply hover effects if device supports hover */
+    .interactive-element:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media (hover: none) {
+    /* Touch-specific interactions for devices without hover */
+    .interactive-element:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Gesture-Friendly Elements */
+.swipe-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+.swipe-item {
+    scroll-snap-align: start;
+    flex: 0 0 80%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Touch feedback */
+.touch-feedback {
+    position: relative;
+    overflow: hidden;
+}
+
+.touch-feedback::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255,255,255,.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(5);
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
+}
+
+.touch-feedback:active::after {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s;
+}
+
+/* Flip Card Animation */
+.flip-card {
+    perspective: 1000px;
+    height: 300px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-front {
+    background-color: var(--doganhub-navy);
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-back {
+    background-color: var(--doganhub-turquoise);
+    color: var(--doganhub-navy);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}

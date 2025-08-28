@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Consultation {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  company     String?
+  message     String
+  status      String   @default("PENDING") // PENDING, CONTACTED, COMPLETED, CANCELLED
+  source      String?  // Where did the request come from
+  metadata    Json?    // Additional metadata
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Booking {
+  id             String      @id @default(uuid())
+  consultation   Consultation @relation(fields: [consultationId], references: [id])
+  consultationId String      @unique
+  bookingUrl     String
+  scheduledAt    DateTime?
+  status         String      @default("PENDING") // PENDING, SCHEDULED, COMPLETED, CANCELLED
+  calendarId     String?     // External calendar ID (Google/Calendly)
+  meetingLink    String?     // Link to join the meeting
+  metadata       Json?       // Additional metadata
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  
+  @@index([consultationId])
+  @@index([status])
+  @@index([scheduledAt])
+}

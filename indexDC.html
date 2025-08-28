@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganConsult - Tech Advisory Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../shared/css/elite-theme.css">
+    <link rel="stylesheet" href="../shared/css/sexy-elite.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(45deg, #000000, #1a1a1a, #000000);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=3840&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.1);
+            padding: 60px;
+            border-radius: 25px;
+            border: 2px solid #ffd700;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background: #000000;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 450px;
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .ai-consulting {
+            background: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=2000&q=80') center/cover;
+        }
+
+        .digital-transformation {
+            background: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2000&q=80') center/cover;
+        }
+
+        .cybersecurity {
+            background: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=2000&q=80') center/cover;
+        }
+
+        .cloud-solutions {
+            background: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+                url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=2000&q=80') center/cover;
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+        }
+
+        .service-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffd700, #ffffff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: #c0c0c0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: rgba(255,215,0,0.2);
+            color: #ffd700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Innovation Section */
+        .innovation-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0a0a0a, #2a2a2a, #0a0a0a);
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .innovation-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .innovation-card:hover {
+            border-color: #ffd700;
+            transform: translateY(-10px);
+            box-shadow: 0 25px 80px rgba(255,215,0,0.4);
+        }
+
+        .innovation-icon {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .innovation-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .innovation-desc {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 0;
+            background: #000000;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .stat-card {
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffd700, #c0c0c0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #c0c0c0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #ffd700, #b8860b);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: #000000;
+            color: #ffd700;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 15px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .innovation-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .service-card { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="addictive-title">DOGANCONSULT</h1>
+            <p class="elite-subtitle">Tech Advisory Services & Innovation</p>
+            <div class="tech-stats" style="margin-top: 30px;">
+                <div class="tech-stat">
+                    <div class="tech-stat-number">500+</div>
+                    <div class="tech-stat-label">Projects</div>
+                </div>
+                <div class="tech-stat">
+                    <div class="tech-stat-number">50+</div>
+                    <div class="tech-stat-label">Countries</div>
+                </div>
+                <div class="tech-stat">
+                    <div class="tech-stat-number">100%</div>
+                    <div class="tech-stat-label">Success</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2 class="addictive-title">Elite Tech Advisory Services</h2>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card sexy-card magnetic-hover ai-consulting">
+                <div class="service-overlay">
+                    <h3 class="service-title">AI CONSULTING</h3>
+                    <p class="service-description">
+                        Strategic AI implementation and optimization for enterprise-scale digital transformation.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Machine Learning</span>
+                        <span class="feature-tag">Neural Networks</span>
+                        <span class="feature-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card sexy-card magnetic-hover digital-transformation">
+                <div class="service-overlay">
+                    <h3 class="service-title">DIGITAL TRANSFORMATION</h3>
+                    <p class="service-description">
+                        Complete organizational modernization aligned with Vision 2030 and global best practices.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Process Optimization</span>
+                        <span class="feature-tag">Cloud Migration</span>
+                        <span class="feature-tag">IoT Integration</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card sexy-card magnetic-hover cybersecurity">
+                <div class="service-overlay">
+                    <h3 class="service-title">CYBERSECURITY</h3>
+                    <p class="service-description">
+                        Advanced security frameworks and risk management for critical infrastructure protection.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Threat Detection</span>
+                        <span class="feature-tag">Risk Assessment</span>
+                        <span class="feature-tag">Compliance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card sexy-card magnetic-hover cloud-solutions">
+                <div class="service-overlay">
+                    <h3 class="service-title">CLOUD SOLUTIONS</h3>
+                    <p class="service-description">
+                        Scalable cloud architecture and hybrid solutions for maximum performance and security.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Multi-Cloud</span>
+                        <span class="feature-tag">Hybrid Systems</span>
+                        <span class="feature-tag">Scalability</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section class="innovation-section">
+        <div class="section-title">
+            <h2 class="addictive-title">Innovation Excellence</h2>
+        </div>
+        
+        <div class="innovation-grid">
+            <div class="innovation-card sexy-card">
+                <div class="innovation-icon">🚀</div>
+                <h3 class="innovation-title">Future-Ready Solutions</h3>
+                <p class="innovation-desc">
+                    Cutting-edge technology implementations that prepare organizations for tomorrow's challenges.
+                </p>
+            </div>
+            
+            <div class="innovation-card sexy-card">
+                <div class="innovation-icon">⚡</div>
+                <h3 class="innovation-title">Rapid Deployment</h3>
+                <p class="innovation-desc">
+                    Accelerated implementation timelines without compromising quality or security standards.
+                </p>
+            </div>
+            
+            <div class="innovation-card sexy-card">
+                <div class="innovation-icon">🎯</div>
+                <h3 class="innovation-title">Strategic Alignment</h3>
+                <p class="innovation-desc">
+                    Technology solutions perfectly aligned with business objectives and national vision goals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card addictive-stat">
+                <div class="stat-number stat-number-sexy">500+</div>
+                <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-card addictive-stat">
+                <div class="stat-number stat-number-sexy">$5B+</div>
+                <div class="stat-label">Value Created</div>
+            </div>
+            <div class="stat-card addictive-stat">
+                <div class="stat-number stat-number-sexy">50+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+            <div class="stat-card addictive-stat">
+                <div class="stat-number stat-number-sexy">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Organization?</h2>
+        <a href="mailto:consult@doganhub.com" class="cta-btn sexy-btn">Start Your Journey</a>
+        <a href="../ahmetdogan/index-complete-8sections.html" class="cta-btn sexy-btn">Meet Our Expert</a>
+    </section>
+
+    <script>
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.sexy-card, .addictive-stat').forEach(el => {
+            el.classList.add('reveal-on-scroll');
+            observer.observe(el);
+        });
+
+        // Add magnetic hover effect
+        document.querySelectorAll('.magnetic-hover').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                card.style.transform = `perspective(1000px) rotateY(${x / 10}deg) rotateX(${-y / 10}deg) translateZ(10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+/* Professional theme specific for Ahmet Dogan's personal profile */
+:root {
+    --primary-color: #0f766e;
+    --secondary-color: #4f46e5;
+    --accent-color: #e11d48;
+    --text-color: #1e293b;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+/* Profile section */
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.profile-image-container {
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.profile-contact {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.profile-contact h3 {
+    font-size: 1.125rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.social-links a i {
+    margin-right: 10px;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.profile-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.profile-title {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.profile-summary {
+    margin-bottom: 30px;
+}
+
+.profile-summary p {
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.profile-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.highlight-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(15, 118, 110, 0.1);
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.highlight-content h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.highlight-content p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.profile-cta {
+    display: flex;
+    gap: 15px;
+}
+
+/* Experience timeline */
+.experience-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.experience-timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 4px solid white;
+}
+
+.timeline-header {
+    margin-bottom: 15px;
+}
+
+.timeline-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.timeline-organization {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-period {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.timeline-content p {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.timeline-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.timeline-content ul li {
+    margin-bottom: 5px;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* Expertise section */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.expertise-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.expertise-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.expertise-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.expertise-bar {
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.expertise-card p {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Research cards */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.research-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.research-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.research-journal {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.research-card p {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* Certifications */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.certification-category {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.certification-category h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(15, 118, 110, 0.2);
+}
+
+.certification-list {
+    list-style-type: none;
+}
+
+.certification-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--text-color);
+}
+
+.certification-list li:last-child {
+    border-bottom: none;
+}
+
+/* Contact form */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.contact-method {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.contact-method i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-method h3 {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.contact-method p, .contact-method p a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-method p a:hover {
+    color: var(--primary-color);
+}
+
+.contact-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .profile-content, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-highlights {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-header h3 {
+        font-size: 1.125rem;
+    }
+}

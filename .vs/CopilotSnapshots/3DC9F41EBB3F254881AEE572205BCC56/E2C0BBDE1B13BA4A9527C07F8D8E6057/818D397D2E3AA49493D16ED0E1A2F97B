@@ -1,0 +1,1088 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganConsult - AI & Data Analytics Engineering Consultancy</title>
+    <meta name="description" content="Leading AI and Data Analytics engineering consultancy delivering cutting-edge solutions for enterprise transformation">
+    
+    <!-- Modern CSS Framework & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Latest Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r159/three.min.js" integrity="sha512-NiS711FjDOZx+aKNnOxBCjCOhw6tUfqO2MJ5OW7a1PgBdkfBYp1VZz3l8KlJRGKdY8NnQNaTzUjGXgCPrWXSNw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Particles.js for AI background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style>
+        :root {
+            --primary: #00ff88;
+            --primary-dark: #00cc6a;
+            --secondary: #0099ff;
+            --accent: #ff6b35;
+            --dark: #0a0e1a;
+            --dark-light: #1a1f2e;
+            --text: #ffffff;
+            --text-secondary: #a0a9c0;
+            --gradient-ai: linear-gradient(135deg, #00ff88, #0099ff);
+            --gradient-data: linear-gradient(135deg, #ff6b35, #00ff88);
+            --shadow-glow: 0 0 30px rgba(0, 255, 136, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Modern Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(10, 14, 26, 0.98);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-ai);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--gradient-ai);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
+        }
+        
+        /* Hero Section with AI Background */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-ai);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            background: var(--dark-light);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            background: var(--gradient-data);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-ai);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-ai);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .service-features {
+            list-style: none;
+        }
+        
+        .service-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Interactive AI Demo Section */
+        .ai-demo {
+            padding: 8rem 2rem;
+            background: var(--dark);
+        }
+        
+        .demo-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .demo-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-list li {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .demo-list li::before {
+            content: '🤖';
+            position: absolute;
+            left: 0;
+        }
+        
+        .demo-chart {
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Data Visualization Section */
+        .data-viz {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+        }
+        
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .viz-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            transition: var(--transition);
+        }
+        
+        .viz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .viz-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .viz-metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .viz-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 8rem 2rem;
+            background: var(--dark-light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+        
+        .submit-btn {
+            background: var(--gradient-ai);
+            color: var(--dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .demo-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Floating Elements Animation */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Pulse Effect */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">DoganConsult.AI</a>
+            <ul class="nav-links">
+                <li><a href="#services" class="nav-link">AI Services</a></li>
+                <li><a href="#analytics" class="nav-link">Data Analytics</a></li>
+                <li><a href="#demo" class="nav-link">Live Demo</a></li>
+                <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🚀 Advanced AI & Data Analytics Engineering</div>
+            <h1>Next-Generation AI Solutions</h1>
+            <p class="hero-subtitle">Transforming businesses through cutting-edge artificial intelligence and advanced data analytics engineering</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item floating">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">AI Models Deployed</span>
+                </div>
+                <div class="stat-item floating" style="animation-delay: 2s;">
+                    <span class="stat-number">98.7%</span>
+                    <span class="stat-label">Accuracy Rate</span>
+                </div>
+                <div class="stat-item floating" style="animation-delay: 4s;">
+                    <span class="stat-number">200TB+</span>
+                    <span class="stat-label">Data Processed</span>
+                </div>
+                <div class="stat-item floating" style="animation-delay: 6s;">
+                    <span class="stat-number">15ms</span>
+                    <span class="stat-label">Inference Time</span>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#demo" class="btn-primary pulse">Explore AI Demo</a>
+                <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI & Data Engineering Services</h2>
+                <p class="section-subtitle">Comprehensive artificial intelligence and data analytics solutions for modern enterprises</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">Machine Learning Engineering</h3>
+                    <p class="service-description">End-to-end ML pipeline development with automated model training, validation, and deployment using latest frameworks.</p>
+                    <ul class="service-features">
+                        <li>Custom neural network architectures</li>
+                        <li>AutoML and hyperparameter optimization</li>
+                        <li>MLOps and model lifecycle management</li>
+                        <li>Real-time inference optimization</li>
+                        <li>Edge AI deployment</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Advanced Data Analytics</h3>
+                    <p class="service-description">Sophisticated data analysis and visualization solutions to extract actionable insights from complex datasets.</p>
+                    <ul class="service-features">
+                        <li>Big data processing (Spark, Hadoop)</li>
+                        <li>Real-time streaming analytics</li>
+                        <li>Predictive modeling & forecasting</li>
+                        <li>Interactive dashboard development</li>
+                        <li>Statistical analysis & A/B testing</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">AI Automation & Robotics</h3>
+                    <p class="service-description">Intelligent automation solutions combining AI, robotics, and process optimization for maximum efficiency.</p>
+                    <ul class="service-features">
+                        <li>Robotic Process Automation (RPA)</li>
+                        <li>Computer vision applications</li>
+                        <li>Natural language processing</li>
+                        <li>Intelligent document processing</li>
+                        <li>Conversational AI & chatbots</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">Data Engineering & Infrastructure</h3>
+                    <p class="service-description">Scalable data architecture and infrastructure solutions for enterprise-grade AI and analytics systems.</p>
+                    <ul class="service-features">
+                        <li>Cloud data warehousing</li>
+                        <li>ETL/ELT pipeline development</li>
+                        <li>Data lake & lakehouse architecture</li>
+                        <li>Real-time data ingestion</li>
+                        <li>Data quality & governance</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">AI Security & Compliance</h3>
+                    <p class="service-description">Secure AI implementations with comprehensive compliance frameworks and ethical AI practices.</p>
+                    <ul class="service-features">
+                        <li>AI model security & privacy</li>
+                        <li>Adversarial attack protection</li>
+                        <li>GDPR & regulatory compliance</li>
+                        <li>Explainable AI (XAI)</li>
+                        <li>Bias detection & mitigation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">AI Training & Consulting</h3>
+                    <p class="service-description">Expert consulting and training programs to build internal AI capabilities and strategic roadmaps.</p>
+                    <ul class="service-features">
+                        <li>AI strategy development</li>
+                        <li>Team training & upskilling</li>
+                        <li>Technology assessment</li>
+                        <li>Implementation roadmaps</li>
+                        <li>Best practices workshops</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive AI Demo -->
+    <section class="ai-demo" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Live AI Performance Dashboard</h2>
+                <p class="section-subtitle">Real-time monitoring of our production AI systems</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-grid">
+                    <div class="demo-content">
+                        <h3>🤖 AI Model Performance</h3>
+                        <ul class="demo-list">
+                            <li>Real-time inference monitoring</li>
+                            <li>Automated model retraining</li>
+                            <li>Performance metrics tracking</li>
+                            <li>Error rate optimization</li>
+                            <li>Resource utilization analysis</li>
+                        </ul>
+                        <button class="btn-primary" onclick="refreshMetrics()">
+                            <span id="refresh-text">Refresh Metrics</span>
+                        </button>
+                    </div>
+                    <div class="demo-chart">
+                        <canvas id="performanceChart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section class="data-viz" id="analytics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Real-Time Analytics</h2>
+                <p class="section-subtitle">Live data processing and analytics capabilities</p>
+            </div>
+            
+            <div class="viz-grid">
+                <div class="viz-card">
+                    <h4>🔥 Models in Production</h4>
+                    <span class="viz-metric" id="models-count">847</span>
+                    <span class="viz-label">Active AI Models</span>
+                </div>
+                <div class="viz-card">
+                    <h4>⚡ Inference Speed</h4>
+                    <span class="viz-metric" id="inference-speed">12.4ms</span>
+                    <span class="viz-label">Average Response Time</span>
+                </div>
+                <div class="viz-card">
+                    <h4>📊 Data Throughput</h4>
+                    <span class="viz-metric" id="data-throughput">2.8GB/s</span>
+                    <span class="viz-label">Real-time Processing</span>
+                </div>
+                <div class="viz-card">
+                    <h4>🎯 Accuracy Rate</h4>
+                    <span class="viz-metric" id="accuracy-rate">98.7%</span>
+                    <span class="viz-label">Model Accuracy</span>
+                </div>
+                <div class="viz-card">
+                    <h4>🌐 Global Requests</h4>
+                    <span class="viz-metric" id="global-requests">1.2M</span>
+                    <span class="viz-label">Requests per Hour</span>
+                </div>
+                <div class="viz-card">
+                    <h4>🔒 Security Score</h4>
+                    <span class="viz-metric" id="security-score">99.9%</span>
+                    <span class="viz-label">Security Compliance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Build the Future Together</h2>
+                <p class="section-subtitle">Ready to transform your business with AI and advanced analytics?</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3>Start Your AI Journey</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Details</label>
+                            <textarea id="project" name="project" rows="4" placeholder="Tell us about your AI/Data Analytics requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span id="submit-text">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ai@doganconsult.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) AI-EXPERT</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Global AI Innovation Centers</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>24/7 AI Support Available</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 2rem; background: rgba(0, 255, 136, 0.05); border-radius: 15px; border: 1px solid rgba(0, 255, 136, 0.1);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">🚀 Free AI Consultation</h4>
+                        <p style="color: var(--text-secondary);">Get a complimentary AI readiness assessment and strategic roadmap for your organization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Particles.js for AI background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#00ff88' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00ff88',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize Chart.js for AI performance demo
+        const ctx = document.getElementById('performanceChart');
+        if (ctx) {
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Model Accuracy (%)',
+                        data: [92.1, 94.3, 96.2, 97.1, 98.2, 98.7],
+                        borderColor: '#00ff88',
+                        backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Inference Speed (ms)',
+                        data: [18.2, 16.1, 14.8, 13.2, 12.9, 12.4],
+                        borderColor: '#0099ff',
+                        backgroundColor: 'rgba(0, 153, 255, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c0' },
+                            grid: { color: 'rgba(160, 169, 192, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c0' },
+                            grid: { color: 'rgba(160, 169, 192, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Refresh metrics function
+        function refreshMetrics() {
+            const refreshBtn = document.getElementById('refresh-text');
+            refreshBtn.innerHTML = '<span class="loading"></span> Updating...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Update metrics with random realistic values
+                document.getElementById('models-count').textContent = Math.floor(800 + Math.random() * 100);
+                document.getElementById('inference-speed').textContent = (12 + Math.random() * 2).toFixed(1) + 'ms';
+                document.getElementById('data-throughput').textContent = (2.5 + Math.random() * 0.5).toFixed(1) + 'GB/s';
+                document.getElementById('accuracy-rate').textContent = (98.5 + Math.random() * 0.4).toFixed(1) + '%';
+                document.getElementById('global-requests').textContent = (1.1 + Math.random() * 0.2).toFixed(1) + 'M';
+                document.getElementById('security-score').textContent = (99.8 + Math.random() * 0.2).toFixed(1) + '%';
+                
+                refreshBtn.textContent = 'Refresh Metrics';
+            }, 2000);
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-text');
+            submitBtn.innerHTML = '<span class="loading"></span> Sending...';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Message Sent!';
+                this.reset();
+                
+                setTimeout(() => {
+                    submitBtn.textContent = 'Send Message';
+                }, 3000);
+            }, 2000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Auto-refresh metrics every 30 seconds
+        setInterval(refreshMetrics, 30000);
+
+        // Error handling for failed resources
+        window.addEventListener('error', function(e) {
+            console.warn('Resource failed to load:', e.target);
+            // Gracefully handle missing resources
+        });
+
+        // Performance optimization
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                // Non-critical initialization
+                console.log('AI Dashboard initialized successfully');
+            });
+        }
+    </script>
+</body>
+</html>

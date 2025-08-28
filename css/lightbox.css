@@ -1,0 +1,265 @@
+/**
+ * Lightbox CSS for Memorial Gallery
+ * For Ahmet Dogan Website - Omer Memorial
+ * Using DOGANHUB color palette: #FCFCFC, #152D46, #0D253E, #A1D4E0, #7CCBDC
+ */
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 37, 62, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-image-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(124, 203, 220, 0.3);
+    border-radius: 3px;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.lightbox-image.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.lightbox-caption {
+    color: #FCFCFC;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    transition-delay: 0.2s;
+}
+
+.lightbox-caption.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #FCFCFC;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    color: #7CCBDC;
+    transform: scale(1.1);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.lightbox-container:hover .lightbox-nav {
+    opacity: 1;
+}
+
+.lightbox-nav-prev {
+    left: 0;
+    background: linear-gradient(to right, rgba(13, 37, 62, 0.4), transparent);
+}
+
+.lightbox-nav-next {
+    right: 0;
+    background: linear-gradient(to left, rgba(13, 37, 62, 0.4), transparent);
+}
+
+.lightbox-nav-icon {
+    color: rgba(252, 252, 252, 0.7);
+    font-size: 3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lightbox-nav:hover .lightbox-nav-icon {
+    color: #7CCBDC;
+    transform: scale(1.1);
+}
+
+.lightbox-counter {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    color: rgba(252, 252, 252, 0.7);
+    font-size: 0.9rem;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 37, 62, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-zoom-icon {
+    color: #FCFCFC;
+    font-size: 1.5rem;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-zoom-icon {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+/* Loading Animation */
+.lightbox-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(124, 203, 220, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #7CCBDC;
+    animation: spin 1s linear infinite;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.lightbox-loader.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* RTL Support */
+html[dir="rtl"] .lightbox-close {
+    right: auto;
+    left: 0;
+}
+
+html[dir="rtl"] .lightbox-counter {
+    left: auto;
+    right: 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .lightbox-container {
+        width: 95%;
+    }
+    
+    .lightbox-image-container {
+        height: 70vh;
+    }
+    
+    .lightbox-nav {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .lightbox-container {
+        width: 100%;
+    }
+    
+    .lightbox-image-container {
+        height: 60vh;
+    }
+    
+    .lightbox-caption {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    
+    .lightbox-nav-icon {
+        font-size: 2rem;
+    }
+}

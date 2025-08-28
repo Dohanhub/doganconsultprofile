@@ -1,0 +1,14 @@
+﻿{
+    "agents":  [
+                   {
+                       "name":  "Consult Professional",
+                       "specialty":  "Strategic planning and business development",
+                       "role":  "Business Strategy Expert"
+                   },
+                   {
+                       "name":  "Consult Technical",
+                       "specialty":  "Technical solutions and architecture design",
+                       "role":  "Technical Architecture Guide"
+                   }
+               ]
+}

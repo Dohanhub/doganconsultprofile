@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganHub - Technology Expertise | AI, IoT, Digital Transformation</title>
+    <meta name="description" content="DoganHub's comprehensive technology expertise across AI, IoT, Cloud Computing, and Digital Transformation solutions for enterprise implementation.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #3b82f6;
+            --accent: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --text-muted: #9ca3af;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-dark: #1f2937;
+            --border: #e5e7eb;
+            --shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px -4px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --ai-color: #8b5cf6;
+            --iot-color: #10b981;
+            --cloud-color: #3b82f6;
+            --security-color: #ef4444;
+            --transformation-color: #f59e0b;
+        }
+        
+        .tech-hero {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(59, 130, 246, 0.8)), url('https://images.unsplash.com/photo-1526666923127-b2970f64b422?q=80&w=2072&auto=format&fit=crop') center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tech-section {
+            padding: 5rem 0;
+        }
+        
+        .tech-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tab.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow);
+        }
+        
+        .tech-content {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .tech-panel {
+            display: none;
+            padding: 2rem;
+        }
+        
+        .tech-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: white;
+        }
+        
+        .tech-icon.ai {
+            background: var(--ai-color);
+        }
+        
+        .tech-icon.iot {
+            background: var(--iot-color);
+        }
+        
+        .tech-icon.cloud {
+            background: var(--cloud-color);
+        }
+        
+        .tech-icon.security {
+            background: var(--security-color);
+        }
+        
+        .tech-icon.transformation {
+            background: var(--transformation-color);
+        }
+        
+        .tech-header h3 {
+            font-size: 1.75rem;
+            color: var(--text);
+            margin: 0;
+        }
+        
+        .tech-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .tech-features {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .tech-feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .tech-feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .ai-feature .tech-feature-icon {
+            background: var(--ai-color);
+        }
+        
+        .iot-feature .tech-feature-icon {
+            background: var(--iot-color);
+        }
+        
+        .cloud-feature .tech-feature-icon {
+            background: var(--cloud-color);
+        }
+        
+        .security-feature .tech-feature-icon {
+            background: var(--security-color);
+        }
+        
+        .transformation-feature .tech-feature-icon {
+            background: var(--transformation-color);
+        }
+        
+        .tech-feature-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .tech-feature-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .tech-cta {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        .tech-showcase-link {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+        
+        .tech-showcase-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(16, 185, 129, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .tech-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-tabs {
+                gap: 0.75rem;
+            }
+            
+            .tech-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .tech-hero {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">DoganHub</a>
+                <nav class="nav">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#expertise">Expertise</a>
+                    <a href="countries.html">Regional Expertise</a>
+                    <a href="tech-showcase.html">Tech Showcase</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="tech-hero">
+        <div class="container">
+            <h1>Technology Expertise</h1>
+            <p class="subtitle">20+ Years of ICT Leadership | PgMP, PMP, CISA, CRISC Certified</p>
+        </div>
+    </div>
+
+    <section class="tech-section">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            
+            <div class="tech-tabs">
+                <div class="tech-tab active" data-tab="ai">Artificial Intelligence</div>
+                <div class="tech-tab" data-tab="iot">Internet of Things</div>
+                <div class="tech-tab" data-tab="cloud">Cloud Computing</div>
+                <div class="tech-tab" data-tab="security">Cybersecurity</div>
+                <div class="tech-tab" data-tab="transformation">Digital Transformation</div>
+            </div>
+            
+            <div class="tech-content">
+                <div class="tech-panel active" id="ai-panel">
+                    <div class="tech-header">
+                        <div class="tech-icon ai">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Artificial Intelligence</h3>
+                    </div>
+                    <p class="tech-description">With over 20 years of experience in ICT, I implement practical AI solutions that directly impact business operations. My expertise in enterprise AI integration focuses on creating measurable value through carefully selected technologies aligned with business goals and regulatory requirements.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-feature ai-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>AI Consultation</h4>
+                                <p>Strategic AI implementation planning that assesses your specific business needs and delivers practical roadmaps with proven ROI potential. Based on extensive experience across MENA enterprises.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature ai-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Data-Driven Optimization</h4>
+                                <p>Implementation of business intelligence solutions that transform operational data into actionable insights. Developed enterprise reporting systems for multiple Saudi organizations.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature ai-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Multilingual AI Integration</h4>
+                                <p>Specialized expertise in Arabic-English AI applications that respect cultural context. Particularly relevant for government and enterprise deployments in Saudi Arabia and the MENA region.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature ai-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>AI Ethics & Compliance</h4>
+                                <p>Development of AI governance frameworks that ensure regulatory compliance and ethical implementation. Essential for organizations navigating Saudi Arabia's emerging AI regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-panel" id="iot-panel">
+                    <div class="tech-header">
+                        <div class="tech-icon iot">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Internet of Things</h3>
+                    </div>
+                    <p class="tech-description">My IoT expertise stems from doctoral research in IoT security for healthcare and practical implementation of connected systems across multiple industries. I focus on creating secure, compliant IoT architectures that deliver measurable business outcomes.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-feature iot-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-city"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Vision 2030 IoT Alignment</h4>
+                                <p>Strategic advisory on aligning IoT initiatives with Saudi Vision 2030 objectives. Includes practical implementation guidance for organizations participating in national digital transformation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature iot-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Healthcare IoT Security</h4>
+                                <p>Specialized research in healthcare IoT security based on doctoral work. Helps healthcare providers implement secure connected medical devices while maintaining HIPAA/regional compliance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature iot-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>IoT Security Architecture</h4>
+                                <p>Development of secure IoT architectures with proper authentication, encryption, and monitoring. Essential for mission-critical systems in industrial, healthcare, and public sector applications.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature iot-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Enterprise IoT Integration</h4>
+                                <p>Implementation of IoT systems that integrate with existing enterprise systems. Practical experience connecting operational technology (OT) with information technology (IT) in regulated environments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-panel" id="cloud-panel">
+                    <div class="tech-header">
+                        <div class="tech-icon cloud">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Computing</h3>
+                    </div>
+                    <p class="tech-description">My cloud computing expertise comes from years of enterprise IT leadership, with a focus on secure cloud adoption in regulated industries. I provide strategic guidance on cloud migration and governance specifically tailored to MENA region compliance requirements.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-feature cloud-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Strategic Cloud Advisory</h4>
+                                <p>Enterprise-level cloud strategy development based on decades of ICT leadership experience. Helps organizations make sound decisions about which workloads to migrate and when, with proven ROI models.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature cloud-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Regional Compliance Expertise</h4>
+                                <p>Specialized knowledge of cloud compliance requirements in Saudi Arabia and the wider MENA region. Ensures cloud implementations adhere to data sovereignty and privacy regulations.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature cloud-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Cloud Cost Optimization</h4>
+                                <p>Implementation of governance frameworks that prevent cloud cost overruns. Experience in helping enterprises achieve 20-30% cost reduction through proper resource management and architecture choices.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature cloud-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Enterprise Integration</h4>
+                                <p>Design of cloud architectures that properly integrate with existing enterprise systems. Ensures business continuity while gradually modernizing critical applications and infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-panel" id="security-panel">
+                    <div class="tech-header">
+                        <div class="tech-icon security">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Cybersecurity</h3>
+                    </div>
+                    <p class="tech-description">My cybersecurity expertise is supported by CISA and CRISC certifications, along with doctoral research in healthcare cybersecurity. I specialize in implementing governance frameworks that balance security with operational efficiency in regulated environments.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-feature security-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Certified Security Leadership</h4>
+                                <p>ISACA certified (CISA, CRISC) security governance expertise applied to enterprise environments. Helps organizations implement proper controls while maintaining operational efficiency.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature security-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>MENA Region Compliance</h4>
+                                <p>Specialized knowledge of Saudi NCA compliance requirements, SAMA cybersecurity frameworks, and regional data protection regulations. Essential for organizations operating in regulated sectors.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature security-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-hospital-user"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Healthcare Security Research</h4>
+                                <p>Applied cybersecurity research focused on healthcare environments, including doctoral work on securing Saudi Arabian healthcare systems against emerging IoT threats.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature security-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Security Awareness Programs</h4>
+                                <p>Development of culturally appropriate security awareness programs for MENA region organizations. Addresses the human factors in cybersecurity with measurable behavior change.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-panel" id="transformation-panel">
+                    <div class="tech-header">
+                        <div class="tech-icon transformation">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Digital Transformation</h3>
+                    </div>
+                    <p class="tech-description">My digital transformation expertise comes from 20+ years leading complex ICT initiatives across multiple industries and countries. As a PgMP and PMP certified professional, I bring structured program management approaches to transformation initiatives.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-feature transformation-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Certified Program Leadership</h4>
+                                <p>PgMP (Program Management Professional) and PMP (Project Management Professional) certified leadership for complex transformation initiatives. Ensures disciplined execution and stakeholder alignment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature transformation-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Cross-Cultural Implementation</h4>
+                                <p>Proven expertise in adapting global digital transformation methodologies to local cultural contexts across Saudi Arabia, Kuwait, Turkey, and Egypt. Critical for multinational initiatives.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature transformation-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Enterprise Architecture</h4>
+                                <p>Development of comprehensive enterprise architecture frameworks that align business strategy with technology implementation. Based on experience with leading organizations across MENA.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-feature transformation-feature">
+                            <div class="tech-feature-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div class="tech-feature-content">
+                                <h4>Vision 2030 Alignment</h4>
+                                <p>Strategic advisory on aligning organizational transformation with Saudi Vision 2030 objectives. Helps organizations participate effectively in national digital transformation initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-cta">
+                <a href="tech-showcase.html" class="tech-showcase-link">
+                    <i class="fas fa-rocket"></i> Explore Our Technology Showcase
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>DoganHub</h3>
+                    <p>AI & IoT Innovation Hub led by Ahmet Dogan</p>
+                    <p>Premium Residency Holder - Saudi Arabia</p>
+                    <p>PgMP, PMP, CISA, CRISC Certified</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Site Map</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="technology.html">Technology Expertise</a></li>
+                        <li><a href="countries.html">Regional Expertise</a></li>
+                        <li><a href="tech-showcase.html">Technology Showcase</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> ahmet.dogan@doganhub.com</p>
+                    <p><i class="fas fa-phone"></i> +966-500-666-084</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Saudi Arabia</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ahmet-dogan-ict/"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DoganHub - Ahmet Dogan. All rights reserved. | AI & IoT Innovation Hub for Saudi Arabia's Vision 2030</p>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .footer p {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+        
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            menuBtn.addEventListener('click', function() {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.backdropFilter = 'blur(20px)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                }
+            });
+            
+            // Technology tabs
+            const tabs = document.querySelectorAll('.tech-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all panels
+                    document.querySelectorAll('.tech-panel').forEach(panel => {
+                        panel.classList.remove('active');
+                    });
+                    
+                    // Show the selected panel
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-panel`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

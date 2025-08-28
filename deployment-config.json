@@ -1,0 +1,11 @@
+﻿{
+    "domain": "www.doganconsult.com",
+    "magicLevel": "2/5",
+    "technology": "Next.js+React+TypeScript",
+    "destinationPath": ".\\sites\\doganconsult",
+    "port": "3002",
+    "status": "Active",
+    "siteName": "doganconsult",
+    "sourcePath": "doganconsult",
+    "deploymentDate": "2025-08-28 11:33:21"
+}

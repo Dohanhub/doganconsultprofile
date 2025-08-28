@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganConsult - Executive Consultation Booking | Schedule Your Strategic Assessment</title>
+    <meta name="description" content="Book a strategic consultation with Ahmet Dogan, Elite ICT Executive. Choose from AI implementation, digital transformation, cybersecurity assessment, or comprehensive strategic planning sessions.">
+    
+    <!-- Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --executive-primary: #1a1a1a;
+            --executive-secondary: #2a2a2a;
+            --executive-accent: #ffd700;
+            --executive-accent-dark: #b8860b;
+            --executive-text: #ffffff;
+            --executive-text-muted: #c0c0c0;
+            --executive-text-light: #e0e0e0;
+            --executive-border: rgba(255, 215, 0, 0.3);
+            --executive-glass: rgba(255, 255, 255, 0.1);
+            --executive-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            --executive-gradient: linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a);
+            --executive-gold-gradient: linear-gradient(135deg, #ffd700, #b8860b);
+            --executive-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--executive-gradient);
+            color: var(--executive-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .executive-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--executive-border);
+            transition: var(--executive-transition);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .executive-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-back {
+            color: var(--executive-text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--executive-accent);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        /* Header Section */
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .consultation-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--executive-accent);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .consultation-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .consultation-subtitle {
+            font-size: 1.3rem;
+            color: var(--executive-text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Consultation Options */
+        .consultation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .consultation-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: var(--executive-transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--executive-gold-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .consultation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--executive-shadow);
+            border-color: var(--executive-accent);
+        }
+
+        .consultation-card:hover::before {
+            opacity: 1;
+        }
+
+        .consultation-card.selected {
+            border-color: var(--executive-accent);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .consultation-card.selected::before {
+            opacity: 1;
+        }
+
+        .consultation-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--executive-gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--executive-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .consultation-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .consultation-duration {
+            color: var(--executive-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .consultation-description {
+            color: var(--executive-text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .consultation-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--executive-accent);
+        }
+
+        /* Booking Form */
+        .booking-form-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            color: var(--executive-text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .step-progress {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: var(--executive-accent);
+            transform: scale(1.2);
+        }
+
+        .progress-dot.completed {
+            background: var(--success-color);
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--executive-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 8px;
+            color: var(--executive-text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--executive-accent);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--executive-text-muted);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 8px;
+            color: var(--executive-text);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 8px;
+            color: var(--executive-text);
+            font-size: 1rem;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Calendar Integration */
+        .calendar-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .calendar-dates {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .calendar-times {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .calendar-day {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--executive-border);
+            border-radius: 8px;
+            color: var(--executive-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--executive-accent);
+        }
+
+        .calendar-day.selected {
+            background: var(--executive-accent);
+            color: var(--executive-primary);
+            border-color: var(--executive-accent);
+        }
+
+        .time-slot {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--executive-border);
+            border-radius: 8px;
+            color: var(--executive-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .time-slot:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--executive-accent);
+        }
+
+        .time-slot.selected {
+            background: var(--executive-accent);
+            color: var(--executive-primary);
+            border-color: var(--executive-accent);
+        }
+
+        .time-slot.unavailable {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Action Buttons */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--executive-transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--executive-gold-gradient);
+            color: var(--executive-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--executive-accent);
+            border: 2px solid var(--executive-border);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--executive-shadow);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Confirmation Section */
+        .confirmation-section {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .confirmation-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .confirmation-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 1rem;
+        }
+
+        .confirmation-details {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--executive-text-muted);
+        }
+
+        .detail-value {
+            color: var(--executive-text);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .consultation-options {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form-container {
+                padding: 2rem;
+            }
+
+            .main-container {
+                padding: 100px 1rem 2rem;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--executive-accent);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Error and Success States */
+        .form-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+        }
+
+        .form-message.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--warning-color);
+            color: var(--warning-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="executive-nav">
+        <div class="nav-container">
+            <a href="index.html" class="executive-logo">DoganConsult</a>
+            <a href="index.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Profile
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <div class="consultation-header">
+            <div class="consultation-badge">Executive Consultation Booking</div>
+            <h1 class="consultation-title">Strategic Technology Consultation</h1>
+            <p class="consultation-subtitle">
+                Book a personalized consultation with Ahmet Do?an, Elite ICT Executive and Digital Transformation Leader. Choose from strategic assessments, implementation planning, or comprehensive technology audits.
+            </p>
+        </div>
+
+        <!-- Consultation Options -->
+        <div class="consultation-options">
+            <div class="consultation-card" data-service="discovery">
+                <div class="consultation-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 class="consultation-name">Discovery Session</h3>
+                <div class="consultation-duration">30-45 minutes</div>
+                <p class="consultation-description">
+                    Initial strategic assessment to understand your technology challenges and opportunities. Perfect for exploring potential collaboration and understanding immediate needs.
+                </p>
+                <div class="consultation-features">
+                    <span class="feature-tag">Current State Assessment</span>
+                    <span class="feature-tag">Strategic Roadmap</span>
+                    <span class="feature-tag">Quick Wins Identification</span>
+                </div>
+            </div>
+
+            <div class="consultation-card" data-service="strategic">
+                <div class="consultation-icon">
+                    <i class="fas fa-chess-knight"></i>
+                </div>
+                <h3 class="consultation-name">Strategic Assessment</h3>
+                <div class="consultation-duration">2-3 hours</div>
+                <p class="consultation-description">
+                    Comprehensive evaluation of your technology landscape with detailed recommendations for digital transformation, cybersecurity, and operational excellence.
+                </p>
+                <div class="consultation-features">
+                    <span class="feature-tag">Deep Dive Analysis</span>
+                    <span class="feature-tag">Detailed Recommendations</span>
+                    <span class="feature-tag">Implementation Plan</span>
+                    <span class="feature-tag">ROI Projections</span>
+                </div>
+            </div>
+
+            <div class="consultation-card" data-service="audit">
+                <div class="consultation-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="consultation-name">Technology Audit</h3>
+                <div class="consultation-duration">Half-day session</div>
+                <p class="consultation-description">
+                    Comprehensive audit of your technology infrastructure, cybersecurity posture, and compliance status with actionable recommendations and priority matrix.
+                </p>
+                <div class="consultation-features">
+                    <span class="feature-tag">Infrastructure Review</span>
+                    <span class="feature-tag">Security Assessment</span>
+                    <span class="feature-tag">Compliance Check</span>
+                    <span class="feature-tag">Risk Matrix</span>
+                </div>
+            </div>
+
+            <div class="consultation-card" data-service="transformation">
+                <div class="consultation-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="consultation-name">Transformation Planning</h3>
+                <div class="consultation-duration">Full-day workshop</div>
+                <p class="consultation-description">
+                    Intensive workshop to design your complete digital transformation strategy aligned with Vision 2030 objectives, including implementation roadmap and success metrics.
+                </p>
+                <div class="consultation-features">
+                    <span class="feature-tag">Transformation Strategy</span>
+                    <span class="feature-tag">Vision 2030 Alignment</span>
+                    <span class="feature-tag">Success Metrics</span>
+                    <span class="feature-tag">Change Management</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form-container" id="bookingForm" style="display: none;">
+            <form id="consultationForm">
+                <!-- Step 1: Service Selection -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-header">
+                        <h2 class="step-title">Selected Service</h2>
+                        <p class="step-description">Confirm your consultation type and provide basic information</p>
+                        <div class="step-progress">
+                            <div class="progress-dot active"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                        </div>
+                    </div>
+
+                    <div id="selectedServiceDisplay" class="consultation-details">
+                        <!-- Selected service will be displayed here -->
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-input" name="fullName" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Job Title *</label>
+                            <input type="text" class="form-input" name="jobTitle" placeholder="Your position" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Company/Organization *</label>
+                            <input type="text" class="form-input" name="company" placeholder="Organization name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Industry *</label>
+                            <select class="form-select" name="industry" required>
+                                <option value="">Select your industry</option>
+                                <option value="government">Government</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Financial Services</option>
+                                <option value="telecom">Telecommunications</option>
+                                <option value="oil-gas">Oil & Gas</option>
+                                <option value="education">Education</option>
+                                <option value="retail">Retail</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" name="email" placeholder="executive@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-input" name="phone" placeholder="+966-xxx-xxx-xxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">
+                            Next: Schedule Meeting
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Scheduling -->
+                <div class="form-step" data-step="2">
+                    <div class="step-header">
+                        <h2 class="step-title">Schedule Your Consultation</h2>
+                        <p class="step-description">Select your preferred date and time</p>
+                        <div class="step-progress">
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot active"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-container">
+                        <div class="calendar-dates">
+                            <h3 style="margin-bottom: 1rem; color: var(--executive-text);">Available Dates</h3>
+                            <button type="button" class="calendar-day" data-date="2025-01-20">
+                                <strong>Monday, January 20</strong><br>
+                                <small>Multiple slots available</small>
+                            </button>
+                            <button type="button" class="calendar-day" data-date="2025-01-21">
+                                <strong>Tuesday, January 21</strong><br>
+                                <small>Limited availability</small>
+                            </button>
+                            <button type="button" class="calendar-day" data-date="2025-01-22">
+                                <strong>Wednesday, January 22</strong><br>
+                                <small>Multiple slots available</small>
+                            </button>
+                            <button type="button" class="calendar-day" data-date="2025-01-23">
+                                <strong>Thursday, January 23</strong><br>
+                                <small>Morning slots only</small>
+                            </button>
+                            <button type="button" class="calendar-day" data-date="2025-01-26">
+                                <strong>Sunday, January 26</strong><br>
+                                <small>Multiple slots available</small>
+                            </button>
+                        </div>
+
+                        <div class="calendar-times">
+                            <h3 style="margin-bottom: 1rem; color: var(--executive-text);">Available Times</h3>
+                            <div id="timeSlots">
+                                <p style="color: var(--executive-text-muted); text-align: center; padding: 2rem;">
+                                    Please select a date first
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Meeting Preference</label>
+                        <select class="form-select" name="meetingType">
+                            <option value="video">Video Conference (Recommended)</option>
+                            <option value="phone">Phone Call</option>
+                            <option value="in-person">In-Person (Riyadh Only)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()" disabled id="scheduleNext">
+                            Next: Project Details
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Project Details -->
+                <div class="form-step" data-step="3">
+                    <div class="step-header">
+                        <h2 class="step-title">Project Information</h2>
+                        <p class="step-description">Help us prepare for your consultation</p>
+                        <div class="step-progress">
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot active"></div>
+                            <div class="progress-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Primary Challenge/Opportunity *</label>
+                        <textarea class="form-textarea" name="challenge" placeholder="Describe your main technology challenge or transformation opportunity..." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Project Timeline</label>
+                            <select class="form-select" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="immediate">Immediate (0-3 months)</option>
+                                <option value="short">Short-term (3-6 months)</option>
+                                <option value="medium">Medium-term (6-12 months)</option>
+                                <option value="long">Long-term (12+ months)</option>
+                                <option value="undefined">Timeline not defined</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Budget Range</label>
+                            <select class="form-select" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="under-100k">Under SAR 100K</option>
+                                <option value="100k-500k">SAR 100K - 500K</option>
+                                <option value="500k-1m">SAR 500K - 1M</option>
+                                <option value="1m-5m">SAR 1M - 5M</option>
+                                <option value="5m-plus">SAR 5M+</option>
+                                <option value="not-defined">Budget not defined</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Specific Areas of Focus</label>
+                        <div class="checkbox-group" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--executive-text);">
+                                <input type="checkbox" name="focus" value="ai-ml"> AI & Machine Learning
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--executive-text);">
+                                <input type="checkbox" name="focus" value="digital-transformation"> Digital Transformation
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--executive-text);">
+                                <input type="checkbox" name="focus" value="cybersecurity"> Cybersecurity
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--executive-text);">
+                                <input type="checkbox" name="focus" value="cloud"> Cloud Architecture
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--executive-text);">
+                                <input type="checkbox" name="focus" value="data-center"> Data Center Design
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--executive-text);">
+                                <input type="checkbox" name="focus" value="smart-cities"> Smart Cities
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Additional Information</label>
+                        <textarea class="form-textarea" name="additionalInfo" placeholder="Any additional information that would help prepare for our consultation..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">
+                            Next: Confirmation
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Confirmation -->
+                <div class="form-step" data-step="4">
+                    <div class="step-header">
+                        <h2 class="step-title">Confirm Your Consultation</h2>
+                        <p class="step-description">Review your booking details and confirm</p>
+                        <div class="step-progress">
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot completed"></div>
+                            <div class="progress-dot active"></div>
+                        </div>
+                    </div>
+
+                    <div class="confirmation-details" id="confirmationDetails">
+                        <!-- Booking summary will be populated here -->
+                    </div>
+
+                    <div class="form-message success" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        Your consultation has been successfully booked! You will receive a confirmation email with meeting details and calendar invitation.
+                    </div>
+
+                    <div class="form-message error" id="errorMessage">
+                        <i class="fas fa-exclamation-circle"></i>
+                        There was an error processing your booking. Please try again or contact us directly.
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()" id="confirmPrev">
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="confirmBooking">
+                            <i class="fas fa-calendar-check"></i>
+                            Confirm Booking
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success State -->
+                <div class="form-step" data-step="success">
+                    <div class="confirmation-section">
+                        <div class="confirmation-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h2 class="confirmation-title">Consultation Booked Successfully!</h2>
+                        <p style="color: var(--executive-text-muted); margin-bottom: 2rem;">
+                            Thank you for booking a consultation with Ahmet Do?an. You will receive a confirmation email shortly with all the details.
+                        </p>
+                        
+                        <div class="confirmation-details" id="finalConfirmation">
+                            <!-- Final booking details -->
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <a href="index.html" class="btn btn-primary">
+                                <i class="fas fa-home"></i>
+                                Return to Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Consultation Booking System
+        class ConsultationBooking {
+            constructor() {
+                this.currentStep = 1;
+                this.selectedService = null;
+                this.selectedDate = null;
+                this.selectedTime = null;
+                this.formData = {};
+                
+                this.init();
+            }
+
+            init() {
+                this.bindServiceSelection();
+                this.bindFormEvents();
+                this.bindCalendarEvents();
+            }
+
+            bindServiceSelection() {
+                const serviceCards = document.querySelectorAll('.consultation-card');
+                serviceCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        // Remove previous selection
+                        serviceCards.forEach(c => c.classList.remove('selected'));
+                        
+                        // Select current card
+                        card.classList.add('selected');
+                        this.selectedService = card.dataset.service;
+                        
+                        // Show booking form
+                        document.getElementById('bookingForm').style.display = 'block';
+                        this.displaySelectedService(card);
+                        
+                        // Smooth scroll to form
+                        document.getElementById('bookingForm').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    });
+                });
+            }
+
+            bindFormEvents() {
+                const form = document.getElementById('consultationForm');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitBooking();
+                });
+            }
+
+            bindCalendarEvents() {
+                // Date selection
+                const dateButtons = document.querySelectorAll('.calendar-day');
+                dateButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        dateButtons.forEach(b => b.classList.remove('selected'));
+                        button.classList.add('selected');
+                        this.selectedDate = button.dataset.date;
+                        this.loadTimeSlots(this.selectedDate);
+                    });
+                });
+            }
+
+            displaySelectedService(card) {
+                const display = document.getElementById('selectedServiceDisplay');
+                const icon = card.querySelector('.consultation-icon').innerHTML;
+                const name = card.querySelector('.consultation-name').textContent;
+                const duration = card.querySelector('.consultation-duration').textContent;
+                const description = card.querySelector('.consultation-description').textContent;
+
+                display.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.1); border: 1px solid var(--executive-border); border-radius: 12px;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--executive-gold-gradient); display: flex; align-items: center; justify-content: center; color: var(--executive-primary); font-size: 1.5rem;">
+                            ${icon}
+                        </div>
+                        <div>
+                            <h3 style="color: var(--executive-text); margin-bottom: 0.25rem;">${name}</h3>
+                            <p style="color: var(--executive-accent); font-weight: 600; margin-bottom: 0.5rem;">${duration}</p>
+                            <p style="color: var(--executive-text-muted); margin: 0;">${description}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            loadTimeSlots(date) {
+                const timeSlotsContainer = document.getElementById('timeSlots');
+                const scheduleNextBtn = document.getElementById('scheduleNext');
+                
+                // Simulate available time slots based on date
+                const timeSlots = this.getAvailableTimeSlots(date);
+                
+                timeSlotsContainer.innerHTML = timeSlots.map(slot => `
+                    <button type="button" class="time-slot ${slot.available ? '' : 'unavailable'}" 
+                            data-time="${slot.time}" ${!slot.available ? 'disabled' : ''}>
+                        ${slot.time} (${slot.timezone})
+                        ${!slot.available ? '<small> - Unavailable</small>' : ''}
+                    </button>
+                `).join('');
+
+                // Bind time slot selection
+                const timeButtons = timeSlotsContainer.querySelectorAll('.time-slot:not(.unavailable)');
+                timeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        timeButtons.forEach(b => b.classList.remove('selected'));
+                        button.classList.add('selected');
+                        this.selectedTime = button.dataset.time;
+                        scheduleNextBtn.disabled = false;
+                    });
+                });
+            }
+
+            getAvailableTimeSlots(date) {
+                // Simulate time slots - in real app, this would fetch from backend
+                const slots = [
+                    { time: '09:00 AM', timezone: 'Riyadh Time', available: true },
+                    { time: '10:30 AM', timezone: 'Riyadh Time', available: true },
+                    { time: '12:00 PM', timezone: 'Riyadh Time', available: false },
+                    { time: '02:00 PM', timezone: 'Riyadh Time', available: true },
+                    { time: '03:30 PM', timezone: 'Riyadh Time', available: true },
+                    { time: '05:00 PM', timezone: 'Riyadh Time', available: true }
+                ];
+
+                return slots;
+            }
+
+            nextStep() {
+                if (this.validateCurrentStep()) {
+                    this.collectStepData();
+                    this.currentStep++;
+                    this.showStep(this.currentStep);
+                    
+                    if (this.currentStep === 4) {
+                        this.populateConfirmation();
+                    }
+                }
+            }
+
+            prevStep() {
+                this.currentStep--;
+                this.showStep(this.currentStep);
+            }
+
+            showStep(step) {
+                const steps = document.querySelectorAll('.form-step');
+                steps.forEach(s => s.classList.remove('active'));
+                
+                const currentStepEl = document.querySelector(`[data-step="${step}"]`);
+                if (currentStepEl) {
+                    currentStepEl.classList.add('active');
+                }
+            }
+
+            validateCurrentStep() {
+                const currentStepEl = document.querySelector(`[data-step="${this.currentStep}"]`);
+                const requiredFields = currentStepEl.querySelectorAll('[required]');
+                
+                let isValid = true;
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = 'var(--error-color)';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = 'var(--executive-border)';
+                    }
+                });
+
+                // Step 2 specific validation
+                if (this.currentStep === 2) {
+                    if (!this.selectedDate || !this.selectedTime) {
+                        isValid = false;
+                        this.showMessage('Please select both date and time for your consultation.', 'warning');
+                    }
+                }
+
+                return isValid;
+            }
+
+            collectStepData() {
+                const currentStepEl = document.querySelector(`[data-step="${this.currentStep}"]`);
+                const inputs = currentStepEl.querySelectorAll('input, select, textarea');
+                
+                inputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        if (!this.formData[input.name]) this.formData[input.name] = [];
+                        if (input.checked) {
+                            this.formData[input.name].push(input.value);
+                        }
+                    } else {
+                        this.formData[input.name] = input.value;
+                    }
+                });
+
+                // Store selected date and time
+                if (this.selectedDate) this.formData.selectedDate = this.selectedDate;
+                if (this.selectedTime) this.formData.selectedTime = this.selectedTime;
+                if (this.selectedService) this.formData.selectedService = this.selectedService;
+            }
+
+            populateConfirmation() {
+                const confirmationDetails = document.getElementById('confirmationDetails');
+                
+                // Format selected date
+                const dateObj = new Date(this.formData.selectedDate);
+                const formattedDate = dateObj.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                const serviceNames = {
+                    'discovery': 'Discovery Session',
+                    'strategic': 'Strategic Assessment',
+                    'audit': 'Technology Audit',
+                    'transformation': 'Transformation Planning'
+                };
+
+                confirmationDetails.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">Service:</span>
+                        <span class="detail-value">${serviceNames[this.formData.selectedService]}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Date:</span>
+                        <span class="detail-value">${formattedDate}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Time:</span>
+                        <span class="detail-value">${this.formData.selectedTime} (Riyadh Time)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Meeting Type:</span>
+                        <span class="detail-value">${this.formData.meetingType || 'Video Conference'}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Contact:</span>
+                        <span class="detail-value">${this.formData.fullName} (${this.formData.email})</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">${this.formData.company}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Industry:</span>
+                        <span class="detail-value">${this.formData.industry}</span>
+                    </div>
+                `;
+            }
+
+            async submitBooking() {
+                const submitBtn = document.getElementById('confirmBooking');
+                const prevBtn = document.getElementById('confirmPrev');
+                
+                // Show loading state
+                submitBtn.innerHTML = '<span class="loading"></span> Booking Consultation...';
+                submitBtn.disabled = true;
+                prevBtn.disabled = true;
+
+                try {
+                    // Simulate API call
+                    await this.simulateBookingAPI();
+                    
+                    // Show success
+                    this.showStep('success');
+                    this.populateFinalConfirmation();
+                    
+                } catch (error) {
+                    console.error('Booking error:', error);
+                    this.showMessage('Failed to book consultation. Please try again.', 'error');
+                    
+                    // Reset button state
+                    submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Confirm Booking';
+                    submitBtn.disabled = false;
+                    prevBtn.disabled = false;
+                }
+            }
+
+            async simulateBookingAPI() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        // Simulate 90% success rate
+                        if (Math.random() > 0.1) {
+                            resolve({ bookingId: 'DC-' + Date.now() });
+                        } else {
+                            reject(new Error('Booking failed'));
+                        }
+                    }, 2000);
+                });
+            }
+
+            populateFinalConfirmation() {
+                const finalConfirmation = document.getElementById('finalConfirmation');
+                const bookingId = 'DC-' + Date.now();
+                
+                // Format date and time
+                const dateObj = new Date(this.formData.selectedDate);
+                const formattedDate = dateObj.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                const serviceNames = {
+                    'discovery': 'Discovery Session',
+                    'strategic': 'Strategic Assessment', 
+                    'audit': 'Technology Audit',
+                    'transformation': 'Transformation Planning'
+                };
+
+                finalConfirmation.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">Booking ID:</span>
+                        <span class="detail-value" style="color: var(--executive-accent); font-weight: 600;">${bookingId}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Service:</span>
+                        <span class="detail-value">${serviceNames[this.formData.selectedService]}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Scheduled:</span>
+                        <span class="detail-value">${formattedDate} at ${this.formData.selectedTime}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Consultant:</span>
+                        <span class="detail-value">Ahmet Do?an, Elite ICT Executive</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Next Steps:</span>
+                        <span class="detail-value">Calendar invitation and preparation materials will be sent to ${this.formData.email}</span>
+                    </div>
+                `;
+            }
+
+            showMessage(message, type) {
+                const messageEl = document.querySelector(`.form-message.${type}`);
+                if (messageEl) {
+                    messageEl.textContent = message;
+                    messageEl.style.display = 'block';
+                    setTimeout(() => {
+                        messageEl.style.display = 'none';
+                    }, 5000);
+                }
+            }
+        }
+
+        // Global functions for navigation
+        function nextStep() {
+            window.bookingSystem.nextStep();
+        }
+
+        function prevStep() {
+            window.bookingSystem.prevStep();
+        }
+
+        // Initialize booking system
+        document.addEventListener('DOMContentLoaded', () => {
+            window.bookingSystem = new ConsultationBooking();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* Technology Partnerships Section Styles */
+.partnerships-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.partnership-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.partnership-image {
+    max-width: 100%;
+    max-height: 120px;
+}
+
+.partnerships-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.partnership-intro {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.partnerships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.partnership-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border-top: 3px solid var(--primary);
+}
+
+.partnership-card:nth-child(2) {
+    border-top-color: var(--accent);
+}
+
+.partnership-card:nth-child(3) {
+    border-top-color: var(--secondary);
+}
+
+.partnership-card:nth-child(4) {
+    border-top-color: #8b5cf6;
+}
+
+.partnership-card:nth-child(5) {
+    border-top-color: #ec4899;
+}
+
+.partnership-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.partnership-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    width: 60px;
+    height: 60px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.partnership-card:nth-child(2) .partnership-icon {
+    color: var(--accent);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.partnership-card:nth-child(3) .partnership-icon {
+    color: var(--secondary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.partnership-card:nth-child(4) .partnership-icon {
+    color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.partnership-card:nth-child(5) .partnership-icon {
+    color: #ec4899;
+    background: rgba(236, 72, 153, 0.1);
+}
+
+.partnership-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.partnership-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.partnership-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Responsive styles for partnerships */
+@media (min-width: 768px) {
+    .partnerships-showcase {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .partnership-logos {
+        flex: 0 0 30%;
+    }
+    
+    .partnerships-content {
+        flex: 0 0 65%;
+    }
+}
+
+@media (max-width: 767px) {
+    .partnership-logos {
+        margin: 0 auto;
+        max-width: 90%;
+    }
+    
+    .partnership-intro {
+        padding: 0 1rem;
+    }
+}

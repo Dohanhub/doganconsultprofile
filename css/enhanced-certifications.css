@@ -1,0 +1,226 @@
+/* Enhanced Certifications Styling */
+.certifications-enhanced {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.cert-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.cert-category {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.cert-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.category-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.category-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.category-header h3 {
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.cert-card {
+    background: #fafafa;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.cert-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-3px);
+}
+
+.cert-card.premium {
+    background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+    border: 2px solid #f59e0b;
+}
+
+.cert-logo-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cert-logo {
+    width: 80px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 700;
+    color: white;
+}
+
+.pmi-logo {
+    background: linear-gradient(135deg, #004B87, #0073E6);
+}
+
+.bicsi-logo {
+    background: linear-gradient(135deg, #E31B23, #C41E3A);
+}
+
+.isaca-logo {
+    background: linear-gradient(135deg, #0066CC, #0052A3);
+}
+
+.aws-logo {
+    background: linear-gradient(135deg, #FF9900, #FF6600);
+}
+
+.microsoft-logo {
+    background: linear-gradient(135deg, #00BCF2, #0078D4);
+}
+
+.cert-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.premium-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    animation: pulse 2s infinite;
+}
+
+.cert-content h4 {
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.cert-issuer {
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.cert-date {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.cert-content p {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.cert-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    color: #3730a3;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cert-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 24px;
+    color: white;
+}
+
+.summary-card {
+    text-align: center;
+}
+
+.summary-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.summary-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@media (max-width: 768px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cert-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

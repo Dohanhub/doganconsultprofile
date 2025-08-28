@@ -1,0 +1,167 @@
+/* Military Technology Page Styles */
+
+/* Hero Section for inner pages */
+.inner-page-hero {
+    min-height: 400px;
+}
+
+/* Military content container */
+.military-content {
+    margin-top: 40px;
+}
+
+/* Military category styling */
+.military-category {
+    margin-bottom: 60px;
+}
+
+.military-category h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.military-category h3::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--doganhub-turquoise);
+    bottom: 0;
+    left: 0;
+}
+
+body.rtl .military-category h3::after {
+    right: 0;
+    left: auto;
+}
+
+/* Military grid layout */
+.military-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Military item styling */
+.military-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.military-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.military-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.military-item h4 {
+    padding: 15px 20px 5px;
+    font-size: 20px;
+    color: var(--dark-text);
+    margin: 0;
+}
+
+.military-item p {
+    padding: 0 20px 20px;
+    color: var(--secondary-text);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Comparison table */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.comparison-table th {
+    background-color: var(--doganhub-navy);
+    color: var(--light-text);
+    padding: 15px;
+    text-align: left;
+}
+
+.comparison-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.comparison-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Country flag icons */
+.country-flag {
+    width: 24px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+body.rtl .country-flag {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* Progress bars for comparing capabilities */
+.capability-bar {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.capability-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.turkey-fill {
+    background-color: var(--doganhub-turquoise);
+    width: 95%; /* Example percentage */
+}
+
+.saudi-fill {
+    background-color: #4CAF50;
+    width: 80%; /* Example percentage */
+}
+
+.egypt-fill {
+    background-color: #FFC107;
+    width: 75%; /* Example percentage */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .military-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inner-page-hero {
+        min-height: 300px;
+    }
+    
+    .comparison-table {
+        font-size: 14px;
+    }
+}

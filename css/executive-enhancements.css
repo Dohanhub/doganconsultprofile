@@ -1,0 +1,446 @@
+/**
+ * Executive Enhancements CSS
+ * 
+ * Additional styling specifically designed to appeal to C-suite executives
+ * and create a premium, sophisticated user experience.
+ */
+
+/* Premium Typography Enhancements */
+body {
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.8;
+}
+
+/* Executive-Focused UI Elements */
+.btn {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 32px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Premium Card Styling */
+.research-item, 
+.cert-item {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.research-item:hover, 
+.cert-item:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sophisticated Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate.animated {
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Staggered animation delays for multiple items */
+.research-grid .research-item:nth-child(1),
+.cert-grid .cert-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.research-grid .research-item:nth-child(2),
+.cert-grid .cert-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.research-grid .research-item:nth-child(3),
+.cert-grid .cert-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.research-grid .research-item:nth-child(4),
+.cert-grid .cert-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.research-grid .research-item:nth-child(5),
+.cert-grid .cert-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.research-grid .research-item:nth-child(6),
+.cert-grid .cert-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Premium Form Styling */
+.form-control {
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
+  padding: 15px 0;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+  background-color: rgba(10, 37, 64, 0.02);
+}
+
+textarea.form-control {
+  border: 2px solid #e0e0e0;
+  padding: 15px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.form-group label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  font-size: 16px;
+  color: #777;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label {
+  top: -10px;
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+/* Enhanced Chat Widget */
+.chat-widget {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.chat-toggle {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-container {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.chat-header {
+  padding: 20px;
+}
+
+.chat-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.message {
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 18px;
+  max-width: 85%;
+  line-height: 1.5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-user {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 18px 18px 0 18px;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.message-ai {
+  background-color: #f5f7fa;
+  border-radius: 18px 18px 18px 0;
+}
+
+.chat-input {
+  padding: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chat-input input {
+  border: none;
+  background-color: #f5f7fa;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.chat-input button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  opacity: 0.4;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation: typing 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation: typing 1.5s infinite 0.3s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation: typing 1.5s infinite 0.6s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Executive-focused Hero Section */
+.hero {
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.9) 0%, rgba(10, 37, 64, 0.7) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Premium Timeline Styling */
+.timeline::after {
+  background-color: rgba(10, 37, 64, 0.2);
+  width: 3px;
+}
+
+.timeline-item::after {
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
+}
+
+.timeline-content {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.timeline-content:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.timeline-date {
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Executive Stats Counter */
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+/* Premium Section Styling */
+.section-title h2 {
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Subtle Parallax Effect */
+.hero {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Executive-focused Footer */
+footer {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #051a2d 100%);
+}
+
+.footer-col h3::after {
+  background: linear-gradient(90deg, var(--accent-color), rgba(255, 152, 0, 0.5));
+}
+
+.social-links a {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.social-links a:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Print Styles for Executive Sharing */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  .hero, .chat-widget, .footer, nav {
+    display: none;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  .timeline::after, .timeline-item::after {
+    display: none;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20pt;
+  }
+  
+  .timeline-content {
+    box-shadow: none;
+    border: 1pt solid #ddd;
+  }
+}

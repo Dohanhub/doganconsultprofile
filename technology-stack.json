@@ -1,0 +1,41 @@
+﻿{
+    "frontend": [
+        "Next.js 14",
+        "React 18",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion"
+    ],
+    "backend": [
+        "Node.js",
+        "Express.js",
+        "API Routes"
+    ],
+    "database": [
+        "MongoDB",
+        "Redis"
+    ],
+    "buildTools": [
+        "Webpack",
+        "Babel",
+        "ESLint",
+        "Prettier"
+    ],
+    "testing": [
+        "Jest",
+        "React Testing Library",
+        "Cypress"
+    ],
+    "deployment": [
+        "Docker",
+        "Static Hosting",
+        "CDN",
+        "SSL Certificate",
+        "Azure/AWS"
+    ],
+    "gaming": [
+        "WebSocket",
+        "Real-time APIs",
+        "Interactive Components"
+    ]
+}

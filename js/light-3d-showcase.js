@@ -1,0 +1,478 @@
+// Lightweight AI Showcase Component with Enhanced Error Handling
+class LightAIShowcase {
+  constructor(containerId, images = []) {
+    this.container = document.getElementById(containerId);
+    this.images = images;
+    this.currentIndex = 0;
+    this.isActive = false;
+    
+    if (this.container) {
+      this.init();
+    } else {
+      console.warn(`Light AI Showcase: Container '${containerId}' not found`);
+    }
+  }
+
+  async init() {
+    if (!this.container) return;
+    
+    try {
+      // Check Three.js availability
+      if (typeof THREE === 'undefined') {
+        console.warn('Three.js not available, using fallback visualization');
+        this.initFallbackVisualization();
+        return;
+      }
+
+      // Create Three.js scene with error handling
+      this.scene = new THREE.Scene();
+      this.camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+      this.renderer = new THREE.WebGLRenderer({ 
+        antialias: true, 
+        alpha: true,
+        powerPreference: "default" // Better compatibility
+      });
+      
+      // Basic setup with proper sizing
+      const containerWidth = this.container.clientWidth || 400;
+      const containerHeight = this.container.clientHeight || 400;
+      
+      this.renderer.setSize(containerWidth, containerHeight);
+      this.renderer.setClearColor(0x000000, 0);
+      this.container.appendChild(this.renderer.domElement);
+      
+      // Add enhanced lighting for AI theme
+      this.addAILighting();
+      
+      // Create AI-themed visualization
+      this.createAIVisualization();
+      
+      // Position camera
+      this.camera.position.z = 6;
+      
+      // Start animation
+      this.animate();
+      
+      // Add enhanced event listeners
+      this.addAdvancedEventListeners();
+      
+      this.isActive = true;
+      console.log('Light AI Showcase initialized successfully');
+      
+    } catch (error) {
+      console.error('Error initializing Light AI Showcase:', error);
+      this.initFallbackVisualization();
+    }
+  }
+  
+  addAILighting() {
+    // AI-themed lighting setup
+    const ambientLight = new THREE.AmbientLight(0x00ff88, 0.3);
+    this.scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0x0099ff, 0.6);
+    directionalLight.position.set(1, 1, 1);
+    this.scene.add(directionalLight);
+    
+    // Add dynamic rim lighting
+    const rimLight = new THREE.DirectionalLight(0x00ff88, 0.4);
+    rimLight.position.set(-1, -1, -1);
+    this.scene.add(rimLight);
+  }
+  
+  createAIVisualization() {
+    // Create main AI geometric structure
+    const geometry = new THREE.DodecahedronGeometry(2.5, 0);
+    
+    // AI-themed wireframe material
+    const material = new THREE.MeshPhongMaterial({
+      color: 0x00ff88,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.8,
+      shininess: 100
+    });
+    
+    this.aiCore = new THREE.Mesh(geometry, material);
+    this.scene.add(this.aiCore);
+    
+    // Add orbital elements
+    this.createOrbitalElements();
+    
+    // Add data stream effect
+    this.createDataStreams();
+  }
+  
+  createOrbitalElements() {
+    this.orbitals = new THREE.Group();
+    
+    for (let i = 0; i < 3; i++) {
+      const ringGeometry = new THREE.RingGeometry(3 + i * 0.5, 3.1 + i * 0.5, 32);
+      const ringMaterial = new THREE.MeshBasicMaterial({
+        color: i % 2 === 0 ? 0x0099ff : 0x00ff88,
+        transparent: true,
+        opacity: 0.3,
+        side: THREE.DoubleSide
+      });
+      
+      const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+      ring.rotation.x = Math.PI / 2 + (i * 0.3);
+      ring.rotation.y = i * 0.5;
+      
+      this.orbitals.add(ring);
+    }
+    
+    this.scene.add(this.orbitals);
+  }
+  
+  createDataStreams() {
+    // Create floating data points
+    const particleGeometry = new THREE.BufferGeometry();
+    const particleCount = 200;
+    const positions = new Float32Array(particleCount * 3);
+    
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = (Math.random() - 0.5) * 15;
+      positions[i + 1] = (Math.random() - 0.5) * 15;
+      positions[i + 2] = (Math.random() - 0.5) * 15;
+    }
+    
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    
+    const particleMaterial = new THREE.PointsMaterial({
+      color: 0x0099ff,
+      size: 0.05,
+      transparent: true,
+      opacity: 0.7,
+      sizeAttenuation: true
+    });
+    
+    this.dataPoints = new THREE.Points(particleGeometry, particleMaterial);
+    this.scene.add(this.dataPoints);
+  }
+  
+  addAdvancedEventListeners() {
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    
+    // Enhanced mouse interaction
+    this.container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+      this.container.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging || !this.aiCore) return;
+      
+      const deltaX = e.clientX - previousMousePosition.x;
+      const deltaY = e.clientY - previousMousePosition.y;
+      
+      // Apply rotation to main elements
+      this.aiCore.rotation.y += deltaX * 0.008;
+      this.aiCore.rotation.x += deltaY * 0.008;
+      
+      if (this.orbitals) {
+        this.orbitals.rotation.y += deltaX * 0.005;
+        this.orbitals.rotation.x += deltaY * 0.005;
+      }
+      
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    });
+    
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      if (this.container) {
+        this.container.style.cursor = 'grab';
+      }
+    });
+    
+    // Touch support for mobile devices
+    this.container.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        const touch = e.touches[0];
+        previousMousePosition = { x: touch.clientX, y: touch.clientY };
+        e.preventDefault();
+      }
+    });
+    
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging || !this.aiCore || e.touches.length !== 1) return;
+      
+      e.preventDefault();
+      const touch = e.touches[0];
+      const deltaX = touch.clientX - previousMousePosition.x;
+      const deltaY = touch.clientY - previousMousePosition.y;
+      
+      this.aiCore.rotation.y += deltaX * 0.008;
+      this.aiCore.rotation.x += deltaY * 0.008;
+      
+      previousMousePosition = { x: touch.clientX, y: touch.clientY };
+    });
+    
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+    
+    // Responsive resize handling
+    const resizeObserver = new ResizeObserver((entries) => {
+      this.handleResize();
+    });
+    
+    if (this.container) {
+      resizeObserver.observe(this.container);
+    }
+    
+    // Fallback resize listener
+    window.addEventListener('resize', () => this.handleResize());
+  }
+  
+  handleResize() {
+    if (!this.isActive || !this.camera || !this.renderer || !this.container) return;
+    
+    try {
+      const width = this.container.clientWidth || 400;
+      const height = this.container.clientHeight || 400;
+      
+      this.camera.aspect = width / height;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(width, height);
+    } catch (error) {
+      console.warn('Resize error:', error);
+    }
+  }
+  
+  animate() {
+    if (!this.isActive) return;
+    
+    requestAnimationFrame(() => this.animate());
+    
+    try {
+      // Animate main AI core
+      if (this.aiCore) {
+        this.aiCore.rotation.y += 0.003;
+        this.aiCore.rotation.x += 0.001;
+      }
+      
+      // Animate orbital elements
+      if (this.orbitals) {
+        this.orbitals.rotation.z += 0.002;
+      }
+      
+      // Animate data points
+      if (this.dataPoints) {
+        this.dataPoints.rotation.y += 0.001;
+        this.dataPoints.rotation.x += 0.0005;
+      }
+      
+      // Render scene
+      if (this.renderer && this.scene && this.camera) {
+        this.renderer.render(this.scene, this.camera);
+      }
+    } catch (error) {
+      console.warn('Animation error:', error);
+      this.isActive = false;
+    }
+  }
+  
+  initFallbackVisualization() {
+    // Advanced CSS-based fallback
+    this.container.innerHTML = `
+      <div class="ai-fallback-container">
+        <div class="ai-core-fallback">
+          <div class="ai-pulse"></div>
+          <div class="ai-text">??</div>
+        </div>
+        <div class="ai-orbit orbit-1"></div>
+        <div class="ai-orbit orbit-2"></div>
+        <div class="ai-orbit orbit-3"></div>
+        <div class="ai-particles">
+          ${Array.from({length: 20}, (_, i) => `<div class="ai-particle" style="--delay: ${i * 0.2}s;"></div>`).join('')}
+        </div>
+      </div>
+      
+      <style>
+        .ai-fallback-container {
+          width: 100%;
+          height: 400px;
+          position: relative;
+          background: radial-gradient(circle at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+          border-radius: 15px;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .ai-core-fallback {
+          width: 120px;
+          height: 120px;
+          position: relative;
+          z-index: 3;
+        }
+        
+        .ai-pulse {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border: 2px solid #00ff88;
+          border-radius: 50%;
+          animation: aiPulse 2s ease-in-out infinite;
+        }
+        
+        .ai-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 3rem;
+          filter: drop-shadow(0 0 10px #00ff88);
+        }
+        
+        .ai-orbit {
+          position: absolute;
+          border: 1px solid rgba(0, 153, 255, 0.3);
+          border-radius: 50%;
+          animation: aiRotate 10s linear infinite;
+        }
+        
+        .orbit-1 {
+          width: 200px;
+          height: 200px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
+        .orbit-2 {
+          width: 260px;
+          height: 260px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation-duration: 15s;
+          animation-direction: reverse;
+        }
+        
+        .orbit-3 {
+          width: 320px;
+          height: 320px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          animation-duration: 20s;
+        }
+        
+        .ai-particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        
+        .ai-particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: #0099ff;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          animation: aiFloat 8s ease-in-out infinite;
+          animation-delay: var(--delay);
+          opacity: 0.7;
+        }
+        
+        @keyframes aiPulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        
+        @keyframes aiRotate {
+          0% { transform: translate(-50%, -50%) rotate(0deg); }
+          100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes aiFloat {
+          0%, 100% { 
+            transform: translate(0, 0) scale(1);
+            opacity: 0.7;
+          }
+          25% { 
+            transform: translate(100px, -50px) scale(0.8);
+            opacity: 1;
+          }
+          50% { 
+            transform: translate(-80px, -100px) scale(1.2);
+            opacity: 0.5;
+          }
+          75% { 
+            transform: translate(-120px, 60px) scale(0.9);
+            opacity: 0.8;
+          }
+        }
+      </style>
+    `;
+  }
+  
+  // Cleanup method
+  destroy() {
+    this.isActive = false;
+    
+    if (this.renderer) {
+      this.renderer.dispose();
+    }
+    
+    if (this.scene) {
+      // Clean up scene objects
+      while(this.scene.children.length > 0){ 
+        this.scene.remove(this.scene.children[0]); 
+      }
+    }
+    
+    if (this.container) {
+      this.container.innerHTML = '';
+    }
+  }
+}
+
+// Safe initialization with enhanced error handling
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    // Initialize if containers exist
+    const containers = ['techShowcase', 'ai-showcase', 'ai-demo-container'];
+    
+    containers.forEach(containerId => {
+      const container = document.getElementById(containerId);
+      if (container) {
+        new LightAIShowcase(containerId);
+        console.log(`Initialized AI showcase for: ${containerId}`);
+      }
+    });
+  } catch (error) {
+    console.error('Error during AI showcase initialization:', error);
+  }
+});
+
+// Performance optimization - only run if page is visible
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    // Pause animations when page is not visible
+    console.log('Page hidden - AI showcases paused');
+  } else {
+    console.log('Page visible - AI showcases resumed');
+  }
+});
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = LightAIShowcase;
+}
+
+// Make available globally
+window.LightAIShowcase = LightAIShowcase;

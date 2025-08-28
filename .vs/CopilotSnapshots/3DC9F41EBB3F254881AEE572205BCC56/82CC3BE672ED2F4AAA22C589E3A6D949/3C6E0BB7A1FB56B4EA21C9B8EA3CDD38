@@ -1,0 +1,139 @@
+﻿// 3D Showcase Component
+class Showcase3D {
+  constructor(containerId, options = {}) {
+    this.container = document.getElementById(containerId);
+    this.images = options.images || [];
+    this.currentIndex = 0;
+    this.rotationSpeed = options.rotationSpeed || 0.005;
+    this.autoRotate = options.autoRotate !== false;
+    this.init();
+  }
+
+  init() {
+    if (!this.container) return;
+    
+    // Create Three.js scene
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
+    // Set up renderer
+    this.renderer.setSize(400, 400);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.container.appendChild(this.renderer.domElement);
+    
+    // Add lights
+    this.addLights();
+    
+    // Load images and create materials
+    this.loadImages().then(() => {
+      this.createPhotoSphere();
+      this.animate();
+      this.addControls();
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => this.onWindowResize());
+  }
+  
+  addLights() {
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    this.scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(1, 1, 1);
+    this.scene.add(directionalLight);
+  }
+  
+  async loadImages() {
+    this.textureLoader = new THREE.TextureLoader();
+    this.materials = [];
+    
+    for (const imageUrl of this.images) {
+      const texture = await new Promise((resolve) => {
+        this.textureLoader.load(imageUrl, resolve);
+      });
+      this.materials.push(new THREE.MeshBasicMaterial({
+        map: texture,
+        side: THREE.DoubleSide
+      }));
+    }
+  }
+  
+  createPhotoSphere() {
+    const geometry = new THREE.SphereGeometry(5, 60, 40);
+    // Invert the geometry on the x-axis to show the inside of the sphere
+    geometry.scale(-1, 1, 1);
+    
+    this.sphere = new THREE.Mesh(
+      geometry,
+      this.materials[this.currentIndex] || new THREE.MeshBasicMaterial({ color: 0x333333 })
+    );
+    
+    this.scene.add(this.sphere);
+    this.camera.position.z = 5;
+  }
+  
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.materials.length;
+    this.sphere.material = this.materials[this.currentIndex];
+  }
+  
+  prevImage() {
+    this.currentIndex = (this.currentIndex - 1 + this.materials.length) % this.materials.length;
+    this.sphere.material = this.materials[this.currentIndex];
+  }
+  
+  addControls() {
+    // Add navigation buttons
+    const controls = document.createElement('div');
+    controls.className = 'showcase-controls';
+    controls.innerHTML = `
+      <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+    `;
+    this.container.appendChild(controls);
+    
+    // Add event listeners
+    controls.querySelector('.prev').addEventListener('click', () => this.prevImage());
+    controls.querySelector('.next').addEventListener('click', () => this.nextImage());
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.prevImage();
+      if (e.key === 'ArrowRight') this.nextImage();
+    });
+  }
+  
+  onWindowResize() {
+    const width = this.container.clientWidth;
+    const height = this.container.clientHeight;
+    
+    this.camera.aspect = width / height;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(width, height);
+  }
+  
+  animate() {
+    requestAnimationFrame(() => this.animate());
+    
+    if (this.autoRotate && this.sphere) {
+      this.sphere.rotation.y += this.rotationSpeed;
+    }
+    
+    this.renderer.render(this.scene, this.camera);
+  }
+}
+
+// Initialize the 3D showcase when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const showcase = new Showcase3D('3d-showcase-container', {
+    images: [
+      'path/to/your/image1.jpg',
+      'path/to/your/image2.jpg',
+      'path/to/your/image3.jpg'
+    ],
+    rotationSpeed: 0.003,
+    autoRotate: true
+  });
+});

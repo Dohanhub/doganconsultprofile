@@ -1,0 +1,761 @@
+/* 🎨 ENHANCED COLORFUL VISUALS FOR DOGANHUB - MODERN TECH DESIGN */
+/* Advanced Visual Effects, Colors, and Technology-Focused Elements */
+
+/* ========================================
+   🌈 ENHANCED COLOR SYSTEM & VARIABLES
+======================================== */
+
+:root {
+    /* 🎯 Enhanced DoganHub Color Palette */
+    --doganhub-primary: #0f172a;           /* Deep tech blue */
+    --doganhub-secondary: #1e40af;        /* Vibrant blue */
+    --doganhub-accent: #3b82f6;           /* Electric blue */
+    --doganhub-bright: #60a5fa;           /* Light blue */
+    --doganhub-success: #10b981;          /* Success green */
+    --doganhub-warning: #f59e0b;          /* Warning orange */
+    --doganhub-error: #ef4444;            /* Error red */
+    --doganhub-purple: #8b5cf6;           /* Tech purple */
+    --doganhub-cyan: #06b6d4;             /* Cyber cyan */
+    --doganhub-emerald: #10b981;          /* Emerald green */
+    
+    /* 🌟 Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+    --gradient-secondary: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    --gradient-success: linear-gradient(135deg, #10b981, #059669);
+    --gradient-tech: linear-gradient(135deg, #0f172a, #1e40af, #3b82f6);
+    --gradient-rainbow: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4, #10b981, #f59e0b, #ef4444);
+    
+    /* 🎨 Enhanced Shadows */
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+    --shadow-tech: 0 8px 32px rgba(15, 23, 42, 0.2);
+    --shadow-colorful: 0 12px 40px rgba(59, 130, 246, 0.2);
+    --shadow-intense: 0 20px 60px rgba(30, 64, 175, 0.3);
+}
+
+/* ========================================
+   🚀 ENHANCED HEADER WITH TECH EFFECTS
+======================================== */
+
+header {
+    background: var(--gradient-tech);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: var(--shadow-tech);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.1), 
+        rgba(139, 92, 246, 0.1), 
+        transparent
+    );
+    animation: headerScan 4s infinite;
+}
+
+@keyframes headerScan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.logo {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   🌟 ENHANCED HERO SECTION - TECH VISUAL
+======================================== */
+
+.hero {
+    background: var(--gradient-tech);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+    animation: heroParticles 20s infinite linear;
+}
+
+@keyframes heroParticles {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: heroPulse 4s infinite ease-in-out;
+}
+
+@keyframes heroPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.2; }
+}
+
+.hero h1 {
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.gradient-text {
+    background: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s infinite ease-in-out;
+}
+
+@keyframes gradientShift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(45deg); }
+}
+
+/* ========================================
+   💎 ENHANCED BUTTONS WITH TECH EFFECTS
+======================================== */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    padding: 16px 32px;
+    border: 2px solid transparent;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-glow);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-intense);
+    border-color: rgba(59, 130, 246, 0.6);
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-success {
+    background: var(--gradient-success);
+    color: white;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Glitch effect for tech buttons */
+.btn-tech {
+    background: var(--doganhub-primary);
+    color: var(--doganhub-bright);
+    border: 2px solid var(--doganhub-accent);
+    position: relative;
+}
+
+.btn-tech::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--doganhub-accent);
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-tech:hover::after {
+    opacity: 1;
+}
+
+/* ========================================
+   🌈 ENHANCED SERVICE CARDS - COLORFUL
+======================================== */
+
+.service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-rainbow);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.service-card:hover::before {
+    opacity: 0.05;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-intense);
+    border-color: var(--doganhub-accent);
+}
+
+.service-card:nth-child(1) .service-icon {
+    background: var(--gradient-primary);
+}
+
+.service-card:nth-child(2) .service-icon {
+    background: var(--gradient-success);
+}
+
+.service-card:nth-child(3) .service-icon {
+    background: var(--gradient-secondary);
+}
+
+.service-card:nth-child(4) .service-icon {
+    background: linear-gradient(135deg, var(--doganhub-warning), var(--doganhub-error));
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    box-shadow: var(--shadow-colorful);
+}
+
+.service-icon::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.3;
+    filter: blur(10px);
+    z-index: -1;
+    animation: iconGlow 2s infinite ease-in-out;
+}
+
+@keyframes iconGlow {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+/* ========================================
+   📊 ENHANCED STATISTICS - ANIMATED
+======================================== */
+
+.stats-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-tech);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-rainbow);
+    animation: statsProgress 2s ease-out;
+}
+
+@keyframes statsProgress {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--doganhub-accent);
+    box-shadow: var(--shadow-intense);
+}
+
+.stats-number {
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.stats-label {
+    color: var(--doganhub-primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+}
+
+/* ========================================
+   🌟 ENHANCED PROGRESS BARS - COLORFUL
+======================================== */
+
+.progress-bar {
+    height: 12px;
+    background: linear-gradient(90deg, #e5e7eb, #f3f4f6);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.progress-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Different colors for different progress bars */
+.progress-fill:nth-of-type(1) {
+    background: var(--gradient-primary);
+}
+
+.progress-fill:nth-of-type(2) {
+    background: var(--gradient-success);
+}
+
+.progress-fill:nth-of-type(3) {
+    background: var(--gradient-secondary);
+}
+
+/* ========================================
+   🎪 ENHANCED ANIMATIONS & INTERACTIONS
+======================================== */
+
+/* Floating elements animation */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Tech grid background */
+.tech-grid {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* Particle effect */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--doganhub-accent);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particleFloat 15s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) translateX(200px);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   💫 ENHANCED HOVER EFFECTS
+======================================== */
+
+.hover-glow {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.hover-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-rainbow);
+    border-radius: inherit;
+    opacity: 0;
+    filter: blur(10px);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.hover-glow:hover::before {
+    opacity: 0.7;
+}
+
+/* ========================================
+   🌈 SECTION BACKGROUNDS - COLORFUL
+======================================== */
+
+.section-colorful-1 {
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.05), 
+        rgba(139, 92, 246, 0.05),
+        rgba(6, 182, 212, 0.05)
+    );
+}
+
+.section-colorful-2 {
+    background: linear-gradient(135deg,
+        rgba(16, 185, 129, 0.05),
+        rgba(245, 158, 11, 0.05),
+        rgba(239, 68, 68, 0.05)
+    );
+}
+
+/* ========================================
+   🚀 LOADING & TRANSITION EFFECTS
+======================================== */
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.8s forwards;
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   🎯 ENHANCED MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .stats-number {
+        font-size: 2.5rem;
+    }
+    
+    .hero {
+        min-height: 80vh;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.875rem;
+    }
+}
+
+/* ========================================
+   💡 TECHNOLOGY-FOCUSED ELEMENTS
+======================================== */
+
+/* Code-like styling for tech sections */
+.tech-code {
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: var(--doganhub-primary);
+    color: var(--doganhub-bright);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--doganhub-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-rainbow);
+    animation: codeScroll 2s infinite;
+}
+
+@keyframes codeScroll {
+    0% { opacity: 0; transform: scaleX(0); }
+    50% { opacity: 1; transform: scaleX(1); }
+    100% { opacity: 0; transform: scaleX(0); }
+}
+
+/* Circuit-like decorative elements */
+.circuit-line {
+    position: relative;
+}
+
+.circuit-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--doganhub-accent),
+        transparent 30%,
+        var(--doganhub-accent) 60%,
+        transparent
+    );
+    animation: circuitFlow 3s infinite;
+}
+
+@keyframes circuitFlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ========================================
+   🎨 ENHANCED VISUAL FEEDBACK
+======================================== */
+
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.interactive-element:hover {
+    transform: scale(1.05);
+}
+
+.interactive-element:active {
+    transform: scale(0.98);
+    filter: brightness(1.1);
+}
+
+/* Success states */
+.success-state {
+    background: var(--gradient-success);
+    color: white;
+    box-shadow: var(--shadow-glow);
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ========================================
+   🌟 FINAL POLISH & EFFECTS
+======================================== */
+
+/* Smooth scrolling enhancement */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced focus states */
+*:focus {
+    outline: 2px solid var(--doganhub-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Performance optimizations */
+* {
+    will-change: auto;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+}
+
+/* Dark mode friendly enhancements */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --doganhub-primary: #0f172a;
+        --doganhub-secondary: #1e40af;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

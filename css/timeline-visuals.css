@@ -1,0 +1,648 @@
+/* Advanced Timeline Visualization Styles */
+
+/* Core Timeline Styles */
+.timeline-container {
+    position: relative;
+    width: 100%;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Main Timeline Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--doganhub-navy) 0%, var(--doganhub-turquoise) 100%);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Timeline Items */
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* Left/Right Timeline Positioning */
+.timeline-item:nth-child(odd) {
+    justify-content: flex-end;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 40px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 40px;
+}
+
+/* Timeline Content Box */
+.timeline-content {
+    position: relative;
+    width: 45%;
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--doganhub-turquoise);
+}
+
+/* Timeline Date Indicator */
+.timeline-date {
+    position: absolute;
+    top: 20px;
+    background: var(--doganhub-navy);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 3;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    right: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    left: 55%;
+}
+
+/* Timeline Dot */
+.timeline-dot {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: var(--doganhub-turquoise);
+    border: 4px solid #fff;
+    border-radius: 50%;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px rgba(124, 203, 220, 0.3);
+}
+
+/* Timeline Content Styling */
+.timeline-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: var(--doganhub-navy);
+}
+
+.timeline-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--doganhub-dark-navy);
+    margin-bottom: 8px;
+}
+
+.timeline-organization {
+    color: var(--doganhub-turquoise);
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.timeline-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Timeline Item Animation */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+    transform: translateX(-30px);
+}
+
+.timeline-item:nth-child(even) {
+    transform: translateX(30px);
+}
+
+.timeline-item.animate:nth-child(odd),
+.timeline-item.animate:nth-child(even) {
+    transform: translateX(0);
+}
+
+/* Timeline Item Hover Effect */
+.timeline-content:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Timeline Icons */
+.timeline-icon {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--doganhub-navy);
+    border: 5px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    z-index: 3;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge Style */
+.timeline-badge {
+    background: rgba(124, 203, 220, 0.2);
+    color: var(--doganhub-navy);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Certifications Timeline Style */
+.cert-timeline {
+    position: relative;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.cert-timeline-container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.cert-item {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.cert-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.cert-header {
+    position: relative;
+    background: linear-gradient(135deg, var(--doganhub-navy) 0%, var(--doganhub-dark-navy) 100%);
+    padding: 25px 20px;
+    color: #fff;
+    text-align: center;
+    border-bottom: 5px solid var(--doganhub-turquoise);
+}
+
+.cert-logo {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.cert-logo i {
+    font-size: 30px;
+    color: var(--doganhub-navy);
+}
+
+.cert-logo img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+.cert-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.cert-issuer {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.cert-body {
+    padding: 20px;
+    background: #fff;
+}
+
+.cert-date {
+    display: inline-block;
+    background: var(--doganhub-turquoise);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.cert-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cert-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.cert-skill {
+    background: rgba(124, 203, 220, 0.15);
+    color: var(--doganhub-navy);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.cert-footer {
+    padding: 15px 20px;
+    background: #f8f8f8;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.cert-verify {
+    color: var(--doganhub-navy);
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cert-verify i {
+    margin-right: 5px;
+}
+
+/* Education Timeline Styles */
+.edu-timeline {
+    position: relative;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+.edu-timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(180deg, var(--doganhub-navy) 0%, var(--doganhub-turquoise) 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.edu-timeline-item {
+    display: flex;
+    position: relative;
+    margin-bottom: 50px;
+    z-index: 2;
+}
+
+.edu-timeline-item:nth-child(odd) {
+    justify-content: flex-end;
+}
+
+.edu-timeline-content {
+    width: 45%;
+    position: relative;
+}
+
+.edu-timeline-item:nth-child(odd) .edu-timeline-content {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.edu-timeline-item:nth-child(even) .edu-timeline-content {
+    padding-left: 50px;
+}
+
+.edu-timeline-dot {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #fff;
+    border: 6px solid var(--doganhub-turquoise);
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 0 0 6px rgba(124, 203, 220, 0.3);
+}
+
+.edu-timeline-year {
+    position: absolute;
+    top: 13px;
+    background: var(--doganhub-navy);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 3;
+}
+
+.edu-timeline-item:nth-child(odd) .edu-timeline-year {
+    right: calc(100% + 20px);
+}
+
+.edu-timeline-item:nth-child(even) .edu-timeline-year {
+    left: calc(100% + 20px);
+}
+
+.edu-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.edu-card-header {
+    background: linear-gradient(135deg, var(--doganhub-navy) 0%, var(--doganhub-dark-navy) 100%);
+    padding: 20px;
+    color: #fff;
+}
+
+.edu-degree {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.edu-focus {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.edu-school {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.edu-card-body {
+    padding: 20px;
+}
+
+.edu-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.edu-achievements {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.edu-achievements li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.edu-achievements li:before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: var(--doganhub-turquoise);
+    border-radius: 50%;
+}
+
+/* Mobile Responsive Timeline */
+@media screen and (max-width: 768px) {
+    .timeline-container::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        justify-content: flex-start !important;
+        width: 100%;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: calc(100% - 70px);
+        margin-left: 70px;
+        margin-right: 0;
+    }
+    
+    .timeline-dot {
+        left: 20px;
+        transform: none;
+    }
+    
+    .timeline-date {
+        position: relative;
+        top: auto;
+        right: auto !important;
+        left: auto !important;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .edu-timeline-line {
+        left: 20px;
+    }
+    
+    .edu-timeline-item {
+        justify-content: flex-start !important;
+    }
+    
+    .edu-timeline-content {
+        width: calc(100% - 70px);
+        margin-left: 70px !important;
+        padding-left: 20px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+    }
+    
+    .edu-timeline-dot {
+        left: 20px;
+        transform: none;
+    }
+    
+    .edu-timeline-year {
+        position: relative;
+        top: auto;
+        left: auto !important;
+        right: auto !important;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .edu-timeline-item:nth-child(odd) .edu-timeline-content,
+    .edu-timeline-item:nth-child(even) .edu-timeline-content {
+        text-align: left;
+    }
+    
+    .cert-item {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* RTL Support for Timeline */
+html[dir="rtl"] .timeline-container::before {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+html[dir="rtl"] .timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 0;
+    margin-left: 40px;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 0;
+    margin-right: 40px;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(odd) .timeline-date {
+    right: auto;
+    left: 55%;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(even) .timeline-date {
+    left: auto;
+    right: 55%;
+}
+
+html[dir="rtl"] .timeline-dot {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+html[dir="rtl"] .timeline-icon {
+    right: auto;
+    left: 20px;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(odd) {
+    transform: translateX(30px);
+}
+
+html[dir="rtl"] .timeline-item:nth-child(even) {
+    transform: translateX(-30px);
+}
+
+html[dir="rtl"] .timeline-item.animate:nth-child(odd),
+html[dir="rtl"] .timeline-item.animate:nth-child(even) {
+    transform: translateX(0);
+}
+
+/* Mobile RTL Timeline */
+@media screen and (max-width: 768px) {
+    html[dir="rtl"] .timeline-container::before {
+        left: auto;
+        right: 20px;
+    }
+    
+    html[dir="rtl"] .timeline-item:nth-child(odd) .timeline-content,
+    html[dir="rtl"] .timeline-item:nth-child(even) .timeline-content {
+        margin-right: 70px;
+        margin-left: 0;
+    }
+    
+    html[dir="rtl"] .timeline-dot {
+        left: auto;
+        right: 20px;
+    }
+    
+    html[dir="rtl"] .edu-timeline-line {
+        left: auto;
+        right: 20px;
+    }
+    
+    html[dir="rtl"] .edu-timeline-content {
+        margin-right: 70px !important;
+        margin-left: 0 !important;
+        padding-right: 20px !important;
+        padding-left: 0 !important;
+    }
+    
+    html[dir="rtl"] .edu-timeline-dot {
+        left: auto;
+        right: 20px;
+    }
+    
+    html[dir="rtl"] .edu-achievements li {
+        padding-right: 25px;
+        padding-left: 0;
+    }
+    
+    html[dir="rtl"] .edu-achievements li:before {
+        right: 0;
+        left: auto;
+    }
+}

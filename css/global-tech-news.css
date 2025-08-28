@@ -1,0 +1,258 @@
+/* Global Technology News Section Styles */
+.global-tech-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+    color: white;
+}
+
+.news-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.news-category {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.country-flag {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.category-header h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.news-sources {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.news-source-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.news-source-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.source-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.cnet-logo { background: #e31837; }
+.techcrunch-logo { background: #00d084; }
+.verge-logo { background: #fa4549; }
+.wired-logo { background: #000000; }
+.bbc-logo { background: #bb1919; }
+.techradar-logo { background: #0066cc; }
+.tnw-logo { background: #ff6900; }
+.euronews-logo { background: #004080; }
+.cgtn-logo { background: #c8102e; }
+.chinadaily-logo { background: #d41317; }
+.rt-logo { background: #4d8f47; }
+.tass-logo { background: #1f4788; }
+.ait-logo { background: #2563eb; }
+.albawaba-logo { background: #dc2626; }
+.trendsarab-logo { background: #7c3aed; }
+
+.source-info h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.source-info p {
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.specialty-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.regional-specializations {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.specializations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.specialization-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spec-sources {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.spec-source {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.spec-source:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #fbbf24;
+}
+
+.revenue-tag, .expertise-tag, .companies-tag {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    background: rgba(34, 197, 94, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.expertise-tag {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.companies-tag {
+    background: rgba(168, 85, 247, 0.2);
+}
+
+.tourism-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.tourism-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.tourism-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.doganhub-integration {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.1));
+    border-radius: 20px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.integration-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.integration-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .news-categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specializations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .integration-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+}
