@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   // Gaming Paradise Configuration
   experimental: {
     serverComponentsExternalPackages: ['@tanstack/react-query'],
-    optimizeCss: true,
+    optimizeCss: false,
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons']
   },
 

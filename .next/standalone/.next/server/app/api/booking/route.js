@@ -1,0 +1,15 @@
+"use strict";(()=>{var e={};e.id=324,e.ids=[324],e.modules={399:e=>{e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},517:e=>{e.exports=require("next/dist/compiled/next-server/app-route.runtime.prod.js")},719:(e,o,t)=>{t.r(o),t.d(o,{originalPathname:()=>m,patchFetch:()=>h,requestAsyncStorage:()=>c,routeModule:()=>l,serverHooks:()=>p,staticGenerationAsyncStorage:()=>g});var n={};t.r(n),t.d(n,{GET:()=>d,POST:()=>u});var s=t(9303),a=t(8716),i=t(670),r=t(7070);async function u(e){try{let{name:o,email:t,company:n,service:s,message:a,preferredDate:i,preferredTime:u}=await e.json();if(!o||!t||!s)return r.NextResponse.json({error:"Missing required fields"},{status:400});let d=`BK-${Date.now()}-${Math.random().toString(36).substr(2,9)}`,l={id:d,name:o,email:t,company:n||"Not specified",service:s,message:a||"No additional message",preferredDate:i||"To be scheduled",preferredTime:u||"To be scheduled",status:"pending",createdAt:new Date().toISOString(),gamingParadise:{mode:"enabled",magicalLevel:2,agents:["consult-professional","consult-technical"]}};console.log("New booking received:",l);let c={to:t,subject:`Booking Confirmation - ${s}`,body:`Thank you for booking a consultation with DoganConsult!
+      
+Booking Details:
+- Booking ID: ${d}
+- Service: ${s}
+- Date: ${i||"To be scheduled"}
+- Time: ${u||"To be scheduled"}
+
+We will contact you within 24 hours to confirm your appointment.
+
+Gaming Paradise Status: Active
+AI Agents: Online and Ready
+
+Best regards,
+DoganConsult Team`};return r.NextResponse.json({success:!0,bookingId:d,message:"Booking submitted successfully. We will contact you within 24 hours.",confirmationEmail:c},{headers:{"X-Gaming-Paradise":"v2.0-enabled","X-Booking-ID":d,"X-Agents":"consult-professional,consult-technical"}})}catch(e){return console.error("Booking error:",e),r.NextResponse.json({error:"Failed to process booking"},{status:500})}}async function d(e){return r.NextResponse.json({availableSlots:[{date:"2025-01-15",times:["09:00","10:00","11:00","14:00","15:00","16:00"]},{date:"2025-01-16",times:["09:00","10:00","11:00","14:00","15:00","16:00"]},{date:"2025-01-17",times:["09:00","10:00","11:00","14:00","15:00","16:00"]},{date:"2025-01-20",times:["09:00","10:00","11:00","14:00","15:00","16:00"]},{date:"2025-01-21",times:["09:00","10:00","11:00","14:00","15:00","16:00"]}],gamingParadise:{mode:"enabled",magicalLevel:2,agents:["consult-professional","consult-technical"]}})}let l=new s.AppRouteRouteModule({definition:{kind:a.x.APP_ROUTE,page:"/api/booking/route",pathname:"/api/booking",filename:"route",bundlePath:"app/api/booking/route"},resolvedPagePath:"D:\\Dogan-Ai\\Deployment\\domains\\sites\\doganconsult\\app\\api\\booking\\route.ts",nextConfigOutput:"standalone",userland:n}),{requestAsyncStorage:c,staticGenerationAsyncStorage:g,serverHooks:p}=l,m="/api/booking/route";function h(){return(0,i.patchFetch)({serverHooks:p,staticGenerationAsyncStorage:g})}}};var o=require("../../../webpack-runtime.js");o.C(e);var t=e=>o(o.s=e),n=o.X(0,[276,972],()=>t(719));module.exports=n})();
