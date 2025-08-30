@@ -1,0 +1,11 @@
+﻿{
+    "domain":  "doganconsult-ai.com",
+    "magicLevel":  "1/5",
+    "technology":  "React",
+    "destinationPath":  ".\\sites\\doganconsult-ai",
+    "port":  "3005",
+    "status":  "Development",
+    "siteName":  "doganconsult-ai",
+    "sourcePath":  "doganconsult-ai",
+    "deploymentDate":  "2025-08-28 11:35:35"
+}

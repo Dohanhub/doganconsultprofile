@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganConsult - AI-Powered Business Consultation Services</title>
+    <meta name="description" content="Advanced AI-powered business consultation services by Ahmet Dogan. Live AI assistant, interactive analytics, and strategic AI implementation for enterprise transformation.">
+    
+    <!-- Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/consult-modern-theme.css">
+    
+    <style>
+        :root {
+            --executive-primary: #1a1a1a;
+            --executive-secondary: #2a2a2a;
+            --executive-accent: #ffd700;
+            --executive-accent-dark: #b8860b;
+            --executive-text: #ffffff;
+            --executive-text-muted: #c0c0c0;
+            --executive-text-light: #e0e0e0;
+            --executive-border: rgba(255, 215, 0, 0.3);
+            --executive-glass: rgba(255, 255, 255, 0.1);
+            --executive-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            --executive-gradient: linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a);
+            --executive-gold-gradient: linear-gradient(135deg, #ffd700, #b8860b);
+            --executive-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--executive-gradient);
+            color: var(--executive-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .executive-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--executive-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .executive-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--executive-text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--executive-accent);
+        }
+
+        /* Hero Section */
+        .ai-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(1200px 600px at 20% -10%, rgba(99,102,241,0.35), transparent),
+                radial-gradient(1000px 500px at 120% 10%, rgba(16,185,129,0.25), transparent);
+            z-index: -1;
+        }
+
+        .ai-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .ai-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ai-hero p {
+            font-size: 1.25rem;
+            color: var(--executive-text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* AI Chat Demo */
+        .ai-chat-section {
+            padding: 100px 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .ai-chat-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .ai-chat-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .ai-chat-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .ai-chat-header i {
+            color: var(--executive-accent);
+            font-size: 1.5rem;
+        }
+
+        .ai-chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .ai-message {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .ai-message.user {
+            background: rgba(255,215,0,0.2);
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .ai-message.assistant {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .ai-chat-input {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .ai-chat-input input {
+            flex: 1;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 10px;
+            color: var(--executive-text);
+        }
+
+        .ai-chat-input button {
+            padding: 1rem 2rem;
+            background: var(--executive-gold-gradient);
+            border: none;
+            border-radius: 10px;
+            color: var(--executive-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--executive-transition);
+        }
+
+        .ai-chat-input button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--executive-shadow);
+        }
+
+        /* AI Services Grid */
+        .ai-services {
+            padding: 100px 0;
+        }
+
+        .ai-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .ai-service-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--executive-transition);
+        }
+
+        .ai-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--executive-shadow);
+        }
+
+        .ai-service-icon {
+            font-size: 3rem;
+            color: var(--executive-accent);
+            margin-bottom: 1rem;
+        }
+
+        .ai-service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--executive-text);
+        }
+
+        .ai-service-card p {
+            color: var(--executive-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Analytics Dashboard */
+        .analytics-section {
+            padding: 100px 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .analytics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .analytics-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .analytics-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--executive-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .analytics-label {
+            color: var(--executive-text-muted);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .ai-cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .ai-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--executive-text);
+        }
+
+        .ai-cta p {
+            font-size: 1.25rem;
+            color: var(--executive-text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ai-cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: var(--executive-gold-gradient);
+            color: var(--executive-primary);
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--executive-transition);
+        }
+
+        .ai-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--executive-shadow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .ai-services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .analytics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="executive-nav">
+        <div class="nav-container">
+            <a href="indexDC.html" class="executive-logo">DoganConsult</a>
+            <div class="nav-links">
+                <a href="indexDC.html" class="nav-link">Home</a>
+                <a href="consultation-services.html" class="nav-link">Services</a>
+                <a href="ai-consultation.html" class="nav-link">AI Consultation</a>
+                <a href="consultation-booking.html" class="nav-link">Book Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AI Hero Section -->
+    <section class="ai-hero">
+        <div class="ai-hero-content">
+            <h1>AI-Powered Business Consultation</h1>
+            <p>Experience the future of business strategy with our advanced AI assistant. Get real-time insights, interactive analytics, and strategic guidance powered by cutting-edge artificial intelligence.</p>
+        </div>
+    </section>
+
+    <!-- AI Chat Demo Section -->
+    <section class="ai-chat-section">
+        <div class="ai-chat-container">
+            <div class="ai-chat-card">
+                <div class="ai-chat-header">
+                    <i class="fas fa-robot"></i>
+                    <h2>Live AI Business Assistant</h2>
+                </div>
+                <div class="ai-chat-messages" id="chatMessages">
+                    <div class="ai-message assistant">
+                        Hello! I'm your AI business consultant. I can help you with strategic planning, compliance, ROI analysis, and more. What would you like to discuss today?
+                    </div>
+                    <div class="ai-message user">
+                        Can you help me create a PDPL-compliant data policy?
+                    </div>
+                    <div class="ai-message assistant">
+                        Absolutely! I'll help you draft a comprehensive PDPL-compliant data policy. Let me generate a structured outline with key components and compliance requirements.
+                    </div>
+                </div>
+                <div class="ai-chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask me about business strategy, compliance, or analytics...">
+                    <button onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Services Grid -->
+    <section class="ai-services">
+        <div class="ai-services-grid">
+            <div class="ai-service-card">
+                <div class="ai-service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Strategic AI Implementation</h3>
+                <p>Comprehensive AI strategy development and implementation for enterprise transformation and competitive advantage.</p>
+            </div>
+            <div class="ai-service-card">
+                <div class="ai-service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Data Analytics & Insights</h3>
+                <p>AI-driven business intelligence with real-time analytics, predictive modeling, and actionable insights.</p>
+            </div>
+            <div class="ai-service-card">
+                <div class="ai-service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Compliance Automation</h3>
+                <p>AI-powered regulatory compliance with automated policy generation and risk assessment tools.</p>
+            </div>
+            <div class="ai-service-card">
+                <div class="ai-service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Process Optimization</h3>
+                <p>AI-enhanced business processes with intelligent automation and efficiency improvements.</p>
+            </div>
+            <div class="ai-service-card">
+                <div class="ai-service-icon">
+                    <i class="fas fa-crystal-ball"></i>
+                </div>
+                <h3>Predictive Analytics</h3>
+                <p>Future trend analysis and forecasting using advanced AI models and machine learning algorithms.</p>
+            </div>
+            <div class="ai-service-card">
+                <div class="ai-service-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Interactive Strategy Games</h3>
+                <p>Gamified business planning with interactive scenarios, ROI calculators, and strategic decision-making tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Dashboard -->
+    <section class="analytics-section">
+        <div class="analytics-container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">AI-Powered Business Metrics</h2>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-number">94%</div>
+                    <div class="analytics-label">Strategy Success Rate</div>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-number">2.5x</div>
+                    <div class="analytics-label">ROI Improvement</div>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-number">85%</div>
+                    <div class="analytics-label">Process Efficiency</div>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-number">100%</div>
+                    <div class="analytics-label">Compliance Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="ai-cta">
+        <h2>Ready to Transform Your Business with AI?</h2>
+        <p>Experience the power of AI-driven business consultation. Get started with our interactive AI assistant and unlock your business potential.</p>
+        <a href="consultation-booking.html" class="ai-cta-button">Book AI Consultation Now</a>
+    </section>
+
+    <script>
+        // AI Chat Functionality
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add user message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'ai-message user';
+                userDiv.textContent = message;
+                messages.appendChild(userDiv);
+                
+                // Clear input
+                input.value = '';
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiDiv = document.createElement('div');
+                    aiDiv.className = 'ai-message assistant';
+                    aiDiv.textContent = generateAIResponse(message);
+                    messages.appendChild(aiDiv);
+                    
+                    // Scroll to bottom
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                
+                // Scroll to bottom
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+
+        function generateAIResponse(message) {
+            const responses = [
+                "I understand your question about " + message.toLowerCase() + ". Let me provide you with a strategic analysis and actionable recommendations.",
+                "Excellent question! Based on current market trends and AI analysis, here's what I recommend for " + message.toLowerCase() + ".",
+                "I've analyzed your query about " + message.toLowerCase() + ". Here's a comprehensive strategy with risk assessment and ROI projections.",
+                "Great question! Let me break down the key components of " + message.toLowerCase() + " and provide you with a strategic framework.",
+                "I understand you're interested in " + message.toLowerCase() + ". Here's my AI-powered analysis with implementation steps and success metrics."
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Enter key support
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

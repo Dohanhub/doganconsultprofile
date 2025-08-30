@@ -1,0 +1,20 @@
+﻿{
+    "testing":  [
+                    "Manual Testing",
+                    "Browser Testing"
+                ],
+    "deployment":  [
+                       "Static Hosting",
+                       "CDN",
+                       "SSL Certificate"
+                   ],
+    "frontend":  [
+                     "Next.js 14",
+                     "React",
+                     "Tailwind CSS"
+                 ],
+    "buildTools":  [
+                       "Next.js Build",
+                       "Webpack"
+                   ]
+}

@@ -1,0 +1,11 @@
+﻿{
+    "domain":  "gaming-paradise.com",
+    "magicLevel":  "5/5",
+    "technology":  "Next.js",
+    "destinationPath":  ".\\sites\\gaming-paradise",
+    "port":  "3003",
+    "status":  "Active",
+    "siteName":  "gaming-paradise",
+    "sourcePath":  "GAMING-PARADISE",
+    "deploymentDate":  "2025-08-28 11:37:07"
+}

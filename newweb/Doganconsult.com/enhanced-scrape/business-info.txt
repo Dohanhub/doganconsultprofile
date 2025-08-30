@@ -1,0 +1,62 @@
+﻿BUSINESS INFORMATION
+===================
+Company: Dogan Technologies
+Address: 837 Boston Post Road, Old Saybrook, Connecticut 06475
+Phone: +1 203-397-6112
+Description: Dogan Technologies is a Artificial Intelligence based Software company offering AI and data solutions to organizations.
+
+SOCIAL MEDIA LINKS
+=================
+YouTube: https://www.youtube.com/c/DOGANTechnologies
+Medium: https://medium.com/@doganai
+Twitter: https://twitter.com/dogan_ai
+LinkedIn: https://www.linkedin.com/company/doganai
+Instagram: https://www.instagram.com/dogan.ai/?hl=en
+Facebook: https://www.facebook.com/dogantech
+
+EXTERNAL RESOURCES
+=================
+https://assets.calendly.com/assets/external/widget.css
+https://medium.com/@doganai
+https://twitter.com/dogan_ai
+https://www.linkedin.com/company/doganai
+https://www.facebook.com/dogantech
+https://www.instagram.com/dogan.ai/?hl=en
+https://www.youtube.com/c/DOGANTechnologies
+https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js
+https://assets.calendly.com/assets/external/widget.js
+https://www.googletagmanager.com/gtag/js?id=UA-141803826-1
+https://www.youtube.com/embed/onJGOoRMjpk?rel=0&amp;autoplay=1&mute=1
+https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015
+
+TESTIMONIALS
+============
+
+Quote: "Good communication and adhered to deadlines. Code was well-commented. Would
+                                            work with again."
+Author: Matthew T.
+
+Quote: "Their team is smart, communicative and clear. I enjoyed working with them on this
+                                            short but important project. I'd recommend him to others without question."
+Author: Josh of Streamline Global Group
+
+Quote: "Very seamless in communication, and did a great job on the project! Would
+                                            love to work with them again in the near future and would recommend them based
+                                            on their computer vision skills."
+Author: Andy of BeMyApp
+
+SERVICES
+========
+- 1. Software
+- 2. Applications
+- 3. Data Mining
+- 4. Algorithms and Analytics
+- 5. Machine Learning
+- 6. Deep Learning
+
+EXPERTISE AREAS
+===============
+- Computer Vision
+- Computer Vision
+- Predictive Analytics
+- Predictive Analytics

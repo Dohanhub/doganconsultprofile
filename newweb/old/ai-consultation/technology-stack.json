@@ -1,0 +1,16 @@
+﻿{
+    "testing":  [
+                    "Manual Testing",
+                    "Browser Testing"
+                ],
+    "deployment":  [
+                       "Static Hosting",
+                       "CDN",
+                       "SSL Certificate"
+                   ],
+    "frontend":  [
+                     "React",
+                     "Tailwind CSS"
+                 ],
+    "buildTools":  "None"
+}

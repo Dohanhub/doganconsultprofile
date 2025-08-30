@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dogan Demo Adventures - Interactive Technology Showcase & Gaming Paradise">
+    <meta name="keywords" content="gaming, technology demo, interactive showcase, AI gaming, virtual reality">
+    <meta name="author" content="DoganConsult">
+    <title>Dogan Demo Adventures | Interactive Technology Paradise</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="css/gaming-paradise.css">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../css/main.css" as="style">
+    <link rel="preload" href="../js/main.js" as="script">
+</head>
+<body class="gaming-paradise-body">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="gaming-header">
+        <nav role="navigation" aria-label="Gaming navigation">
+            <div class="logo">
+                <a href="../indexDC.html" aria-label="Return to DoganConsult homepage">
+                    <i class="fas fa-gamepad"></i>
+                    Dogan Demo Adventures
+                </a>
+            </div>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#hero-gaming" role="menuitem">Home</a></li>
+                <li role="none"><a href="#demo-showcase" role="menuitem">Demos</a></li>
+                <li role="none"><a href="#interactive-zones" role="menuitem">Interactive</a></li>
+                <li role="none"><a href="#tech-showcase" role="menuitem">Technology</a></li>
+                <li role="none"><a href="#gaming-stats" role="menuitem">Stats</a></li>
+                <li role="none"><a href="../indexDC.html" role="menuitem">Back to Main</a></li>
+            </ul>
+            <button class="burger" aria-label="Toggle mobile navigation menu" aria-expanded="false">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Gaming Section -->
+        <section id="hero-gaming" class="hero-gaming-section">
+            <div class="hero-gaming-content">
+                <div class="hero-title-container">
+                    <h1 class="gaming-title">
+                        <span class="title-line">DOGAN</span>
+                        <span class="title-line">DEMO</span>
+                        <span class="title-line">ADVENTURES</span>
+                    </h1>
+                    <div class="title-subtitle">Interactive Technology Paradise</div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Interactive Demos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Happy Players</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Live Experience</div>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#demo-showcase" class="cta-button primary">
+                        <i class="fas fa-play"></i>
+                        Start Adventure
+                    </a>
+                    <a href="#interactive-zones" class="cta-button secondary">
+                        <i class="fas fa-vr-cardboard"></i>
+                        Explore Zones
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Animated Background Elements -->
+            <div class="floating-elements">
+                <div class="floating-element" data-speed="2">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="floating-element" data-speed="1.5">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="floating-element" data-speed="3">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="floating-element" data-speed="2.5">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="floating-element" data-speed="1.8">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Showcase Section -->
+        <section id="demo-showcase" class="demo-showcase-section">
+            <div class="section-title">
+                <h2 class="gaming-section-title">Interactive Demo Showcase</h2>
+                <p class="section-subtitle">Experience cutting-edge technology through immersive demonstrations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card" data-demo="ai-gaming">
+                    <div class="demo-card-bg">
+                        <div class="demo-overlay">
+                            <div class="demo-icon">
+                                <i class="fas fa-chess-king"></i>
+                            </div>
+                            <h3 class="demo-title">AI Gaming Challenge</h3>
+                            <p class="demo-description">Challenge our advanced AI in strategic games and witness machine learning in action</p>
+                            <div class="demo-features">
+                                <span class="feature-tag">Neural Networks</span>
+                                <span class="feature-tag">Real-time Learning</span>
+                                <span class="feature-tag">Strategic AI</span>
+                            </div>
+                            <button class="demo-launch-btn">
+                                <i class="fas fa-play"></i>
+                                Launch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card" data-demo="vr-experience">
+                    <div class="demo-card-bg">
+                        <div class="demo-overlay">
+                            <div class="demo-icon">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                            <h3 class="demo-title">Virtual Reality Hub</h3>
+                            <p class="demo-description">Immerse yourself in virtual environments showcasing future technology applications</p>
+                            <div class="demo-features">
+                                <span class="feature-tag">VR Technology</span>
+                                <span class="feature-tag">3D Environments</span>
+                                <span class="feature-tag">Interactive Worlds</span>
+                            </div>
+                            <button class="demo-launch-btn">
+                                <i class="fas fa-play"></i>
+                                Launch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card" data-demo="data-visualization">
+                    <div class="demo-card-bg">
+                        <div class="demo-overlay">
+                            <div class="demo-icon">
+                                <i class="fas fa-chart-network"></i>
+                            </div>
+                            <h3 class="demo-title">Data Visualization Lab</h3>
+                            <p class="demo-description">Explore complex data through interactive 3D visualizations and real-time analytics</p>
+                            <div class="demo-features">
+                                <span class="feature-tag">3D Graphics</span>
+                                <span class="feature-tag">Real-time Data</span>
+                                <span class="feature-tag">Interactive Charts</span>
+                            </div>
+                            <button class="demo-launch-btn">
+                                <i class="fas fa-play"></i>
+                                Launch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card" data-demo="blockchain-demo">
+                    <div class="demo-card-bg">
+                        <div class="demo-overlay">
+                            <div class="demo-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3 class="demo-title">Blockchain Explorer</h3>
+                            <p class="demo-description">Witness blockchain technology in action with live transaction visualization</p>
+                            <div class="demo-features">
+                                <span class="feature-tag">Blockchain</span>
+                                <span class="feature-tag">Smart Contracts</span>
+                                <span class="feature-tag">Live Transactions</span>
+                            </div>
+                            <button class="demo-launch-btn">
+                                <i class="fas fa-play"></i>
+                                Launch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card" data-demo="quantum-simulator">
+                    <div class="demo-card-bg">
+                        <div class="demo-overlay">
+                            <div class="demo-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h3 class="demo-title">Quantum Simulator</h3>
+                            <p class="demo-description">Experience quantum computing concepts through interactive simulations</p>
+                            <div class="demo-features">
+                                <span class="feature-tag">Quantum Computing</span>
+                                <span class="feature-tag">Qubits</span>
+                                <span class="feature-tag">Quantum Gates</span>
+                            </div>
+                            <button class="demo-launch-btn">
+                                <i class="fas fa-play"></i>
+                                Launch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-card" data-demo="iot-dashboard">
+                    <div class="demo-card-bg">
+                        <div class="demo-overlay">
+                            <div class="demo-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3 class="demo-title">IoT Dashboard</h3>
+                            <p class="demo-description">Monitor and control simulated IoT devices in real-time</p>
+                            <div class="demo-features">
+                                <span class="feature-tag">IoT Devices</span>
+                                <span class="feature-tag">Real-time Monitoring</span>
+                                <span class="feature-tag">Smart Controls</span>
+                            </div>
+                            <button class="demo-launch-btn">
+                                <i class="fas fa-play"></i>
+                                Launch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Zones Section -->
+        <section id="interactive-zones" class="interactive-zones-section">
+            <div class="section-title">
+                <h2 class="gaming-section-title">Interactive Technology Zones</h2>
+                <p class="section-subtitle">Explore different technology domains through hands-on experiences</p>
+            </div>
+            
+            <div class="zones-container">
+                <div class="zone-card ai-zone">
+                    <div class="zone-header">
+                        <div class="zone-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="zone-title">AI & Machine Learning Zone</h3>
+                    </div>
+                    <div class="zone-content">
+                        <p class="zone-description">Experience artificial intelligence through interactive demonstrations and real-time learning systems.</p>
+                        <div class="zone-activities">
+                            <div class="activity">
+                                <i class="fas fa-robot"></i>
+                                <span>Chat with AI Assistant</span>
+                            </div>
+                            <div class="activity">
+                                <i class="fas fa-image"></i>
+                                <span>AI Image Generation</span>
+                            </div>
+                            <div class="activity">
+                                <i class="fas fa-language"></i>
+                                <span>Natural Language Processing</span>
+                            </div>
+                        </div>
+                        <button class="zone-enter-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Enter Zone
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="zone-card cybersecurity-zone">
+                    <div class="zone-header">
+                        <div class="zone-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="zone-title">Cybersecurity Arena</h3>
+                    </div>
+                    <div class="zone-content">
+                        <p class="zone-description">Test your security skills and learn about cyber threats through interactive challenges.</p>
+                        <div class="zone-activities">
+                            <div class="activity">
+                                <i class="fas fa-bug"></i>
+                                <span>Penetration Testing</span>
+                            </div>
+                            <div class="activity">
+                                <i class="fas fa-lock"></i>
+                                <span>Encryption Challenges</span>
+                            </div>
+                            <div class="activity">
+                                <i class="fas fa-eye"></i>
+                                <span>Threat Detection</span>
+                            </div>
+                        </div>
+                        <button class="zone-enter-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Enter Zone
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="zone-card cloud-zone">
+                    <div class="zone-header">
+                        <div class="zone-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="zone-title">Cloud Computing Hub</h3>
+                    </div>
+                    <div class="zone-content">
+                        <p class="zone-description">Explore cloud infrastructure and deploy applications in real-time environments.</p>
+                        <div class="zone-activities">
+                            <div class="activity">
+                                <i class="fas fa-server"></i>
+                                <span>Server Management</span>
+                            </div>
+                            <div class="activity">
+                                <i class="fas fa-code"></i>
+                                <span>App Deployment</span>
+                            </div>
+                            <div class="activity">
+                                <i class="fas fa-database"></i>
+                                <span>Database Operations</span>
+                            </div>
+                        </div>
+                        <button class="zone-enter-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Enter Zone
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Showcase Section -->
+        <section id="tech-showcase" class="tech-showcase-section">
+            <div class="section-title">
+                <h2 class="gaming-section-title">Technology Showcase</h2>
+                <p class="section-subtitle">Discover the latest innovations through interactive demonstrations</p>
+            </div>
+            
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="showcase-visual">
+                        <div class="tech-animation">
+                            <div class="neural-network">
+                                <div class="node"></div>
+                                <div class="node"></div>
+                                <div class="node"></div>
+                                <div class="connection"></div>
+                                <div class="connection"></div>
+                                <div class="connection"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Neural Network Visualization</h3>
+                        <p>Watch artificial neural networks process information in real-time with beautiful visual representations.</p>
+                        <div class="tech-stats">
+                            <span class="stat">Processing Speed: 1M ops/sec</span>
+                            <span class="stat">Accuracy: 98.5%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-item">
+                    <div class="showcase-visual">
+                        <div class="tech-animation">
+                            <div class="blockchain-chain">
+                                <div class="block"></div>
+                                <div class="block"></div>
+                                <div class="block"></div>
+                                <div class="chain-link"></div>
+                                <div class="chain-link"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Blockchain Live Demo</h3>
+                        <p>Witness blockchain transactions being created and verified in real-time with transparent visualization.</p>
+                        <div class="tech-stats">
+                            <span class="stat">Transactions: 1,247</span>
+                            <span class="stat">Block Height: 1,892,456</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="showcase-item">
+                    <div class="showcase-visual">
+                        <div class="tech-animation">
+                            <div class="quantum-computer">
+                                <div class="qubit"></div>
+                                <div class="qubit"></div>
+                                <div class="qubit"></div>
+                                <div class="quantum-gate"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Quantum Computing Simulator</h3>
+                        <p>Experience quantum computing principles through interactive qubit manipulation and quantum gate operations.</p>
+                        <div class="tech-stats">
+                            <span class="stat">Qubits: 5</span>
+                            <span class="stat">Entanglement: 87%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gaming Stats Section -->
+        <section id="gaming-stats" class="gaming-stats-section">
+            <div class="section-title">
+                <h2 class="gaming-section-title">Adventure Statistics</h2>
+                <p class="section-subtitle">Track your progress and achievements in the Demo Adventures</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number">1,247</div>
+                    <div class="stat-label">Demos Completed</div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number">342</div>
+                    <div class="stat-label">Hours Played</div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 67%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">Achievements Unlocked</div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 92%"></div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">2,891</div>
+                    <div class="stat-label">Global Players</div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gaming-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Dogan Demo Adventures</h3>
+                <p>Interactive technology showcase and gaming paradise</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#demo-showcase">Demos</a></li>
+                    <li><a href="#interactive-zones">Zones</a></li>
+                    <li><a href="#tech-showcase">Technology</a></li>
+                    <li><a href="../indexDC.html">Main Site</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Ready for your next adventure?</p>
+                <a href="mailto:ahmet.dogan@doganhub.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    ahmet.dogan@doganhub.com
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Dogan Demo Adventures | Powered by DoganConsult</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="js/gaming-paradise.js"></script>
+</body>
+</html>

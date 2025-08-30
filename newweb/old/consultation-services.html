@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoganConsult - Comprehensive Technology Consultation Services</title>
+    <meta name="description" content="Comprehensive technology consultation services by Ahmet Dogan, Elite ICT Executive. Strategic assessments, implementation planning, and executive advisory for digital transformation aligned with Vision 2030.">
+    
+    <!-- Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --executive-primary: #1a1a1a;
+            --executive-secondary: #2a2a2a;
+            --executive-accent: #ffd700;
+            --executive-accent-dark: #b8860b;
+            --executive-text: #ffffff;
+            --executive-text-muted: #c0c0c0;
+            --executive-text-light: #e0e0e0;
+            --executive-border: rgba(255, 215, 0, 0.3);
+            --executive-glass: rgba(255, 255, 255, 0.1);
+            --executive-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            --executive-gradient: linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a);
+            --executive-gold-gradient: linear-gradient(135deg, #ffd700, #b8860b);
+            --executive-transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--executive-gradient);
+            color: var(--executive-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .executive-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--executive-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .executive-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--executive-text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--executive-accent);
+        }
+
+        /* Hero Section */
+        .services-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .services-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--executive-accent);
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .services-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            background: var(--executive-gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .services-subtitle {
+            font-size: 1.5rem;
+            color: var(--executive-text-light);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-description {
+            font-size: 1.2rem;
+            color: var(--executive-text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--executive-transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-primary {
+            background: var(--executive-gold-gradient);
+            color: var(--executive-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--executive-accent);
+            border: 2px solid var(--executive-border);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--executive-shadow);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 80px 0;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: var(--executive-transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--executive-gold-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--executive-shadow);
+            border-color: var(--executive-accent);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--executive-gold-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--executive-primary);
+            margin-bottom: 2rem;
+        }
+
+        .service-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--executive-text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--executive-border);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--executive-accent);
+        }
+
+        .service-action {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 80px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--executive-gold-gradient);
+            color: var(--executive-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: var(--executive-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .testimonial-quote {
+            color: var(--executive-text-light);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            color: var(--executive-accent);
+            font-weight: 600;
+        }
+
+        .testimonial-role {
+            color: var(--executive-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--executive-border);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--executive-text);
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            color: var(--executive-text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="executive-nav">
+        <div class="nav-container">
+            <a href="index.html" class="executive-logo">DoganConsult</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Profile</a>
+                <a href="consultation-booking.html" class="nav-link">Book Consultation</a>
+                <a href="index-tech-advisory.html" class="nav-link">Tech Advisory</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="services-badge">Executive Technology Consultation</div>
+            <h1 class="services-title">Strategic Technology Advisory</h1>
+            <p class="services-subtitle">Transforming Organizations Through Expert ICT Leadership</p>
+            <p class="services-description">
+                Comprehensive technology consultation services by Ahmet Do?an, Elite ICT Executive. From strategic assessments to full digital transformation, we deliver solutions aligned with Vision 2030 and global best practices.
+            </p>
+            <div class="hero-cta">
+                <a href="consultation-booking.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i>
+                    Book Your Consultation
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i>
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <h2 class="section-title">Comprehensive Technology Consultation Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-name">AI & Machine Learning Strategy</h3>
+                    <p class="service-description">
+                        Strategic AI implementation for enterprise transformation. We help organizations leverage intelligent automation and data-driven decision making aligned with national AI strategy.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Enterprise AI</span>
+                        <span class="feature-tag">ML Operations</span>
+                        <span class="feature-tag">Data Analytics</span>
+                        <span class="feature-tag">Automation</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="ai-consultation-services.html" class="btn btn-secondary btn-small">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="consultation-booking.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-calendar"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="service-name">Digital Transformation</h3>
+                    <p class="service-description">
+                        Comprehensive organizational modernization leveraging cloud technologies, IoT integration, and process optimization to achieve Vision 2030 digital economy goals.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Cloud Migration</span>
+                        <span class="feature-tag">Process Optimization</span>
+                        <span class="feature-tag">IoT Integration</span>
+                        <span class="feature-tag">Change Management</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#" class="btn btn-secondary btn-small">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="consultation-booking.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-calendar"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-name">Cybersecurity Assessment</h3>
+                    <p class="service-description">
+                        CISM & CISA certified security leadership ensuring robust protection of critical infrastructure and sensitive data across government and enterprise environments.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Risk Management</span>
+                        <span class="feature-tag">Compliance</span>
+                        <span class="feature-tag">Threat Intelligence</span>
+                        <span class="feature-tag">Security Governance</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#" class="btn btn-secondary btn-small">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="consultation-booking.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-calendar"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3 class="service-name">Smart City Solutions</h3>
+                    <p class="service-description">
+                        Advanced urban technology implementations supporting Saudi Arabia's smart city initiatives. Integrating IoT, AI, and data analytics for sustainable urban development.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Urban IoT</span>
+                        <span class="feature-tag">Smart Infrastructure</span>
+                        <span class="feature-tag">Data Integration</span>
+                        <span class="feature-tag">Sustainability</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#" class="btn btn-secondary btn-small">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="consultation-booking.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-calendar"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-name">Enterprise Cloud Architecture</h3>
+                    <p class="service-description">
+                        Strategic cloud transformation enabling scalable, secure, and cost-effective IT infrastructure aligned with regional compliance requirements and business objectives.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">Hybrid Cloud</span>
+                        <span class="feature-tag">Multi-Cloud</span>
+                        <span class="feature-tag">DevOps</span>
+                        <span class="feature-tag">Cost Optimization</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#" class="btn btn-secondary btn-small">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="consultation-booking.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-calendar"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="service-name">Innovation Leadership</h3>
+                    <p class="service-description">
+                        Driving technological innovation through research, emerging technology evaluation, and strategic technology roadmapping for competitive advantage and market leadership.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">R&D Leadership</span>
+                        <span class="feature-tag">Tech Strategy</span>
+                        <span class="feature-tag">Innovation Labs</span>
+                        <span class="feature-tag">Future Tech</span>
+                    </div>
+                    <div class="service-action">
+                        <a href="#" class="btn btn-secondary btn-small">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="consultation-booking.html" class="btn btn-primary btn-small">
+                            <i class="fas fa-calendar"></i>
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Process -->
+    <section class="process-section">
+        <div class="section-container">
+            <h2 class="section-title">Our Consultation Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Initial Assessment</h3>
+                    <p class="step-description">
+                        Comprehensive evaluation of your current technology landscape, challenges, and strategic objectives.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Strategic Planning</h3>
+                    <p class="step-description">
+                        Development of customized technology roadmap aligned with your business goals and Vision 2030.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Implementation Guidance</h3>
+                    <p class="step-description">
+                        Detailed implementation plan with timeline, resource requirements, and success metrics.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Ongoing Support</h3>
+                    <p class="step-description">
+                        Continuous monitoring and optimization to ensure sustainable success and maximum ROI.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Ahmed's strategic guidance transformed our digital infrastructure. His expertise in AI implementation and Vision 2030 alignment delivered exceptional results."
+                    </p>
+                    <div class="testimonial-author">Iman Radwan</div>
+                    <div class="testimonial-role">Project Manager, Huawei Enterprise Kuwait</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Exceptional leadership and technical expertise. Ahmed's ability to navigate complex projects and deliver results is unmatched."
+                    </p>
+                    <div class="testimonial-author">Ashraf Nassar</div>
+                    <div class="testimonial-role">Executive Manager, HEV Group</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        "Professional, dedicated, and results-driven. Ahmed's consultation services provided invaluable insights for our technology transformation."
+                    </p>
+                    <div class="testimonial-author">Albraa Mamdouh</div>
+                    <div class="testimonial-role">Business Unit Manager, Ingram Micro</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="services-section">
+        <div class="section-container">
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Transform Your Organization?</h2>
+                <p class="cta-description">
+                    Schedule a consultation to discuss your technology challenges and opportunities. 
+                    Let's explore how we can drive your digital transformation and business growth.
+                </p>
+                <div class="hero-cta">
+                    <a href="consultation-booking.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Consultation
+                    </a>
+                    <a href="mailto:ahmet.dogan@doganhub.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Direct Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--executive-secondary); padding: 3rem 0; text-align: center; border-top: 1px solid var(--executive-border);">
+        <div class="section-container">
+            <p style="color: var(--executive-text-muted); margin-bottom: 1rem;">
+                © 2025 DoganConsult | Elite Technology Consultation Services
+            </p>
+            <p style="color: var(--executive-text-muted);">
+                Ahmet Do?an • +966-500-666-084 • ahmet.dogan@doganhub.com
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

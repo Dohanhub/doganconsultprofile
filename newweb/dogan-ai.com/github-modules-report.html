@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Modules for Business Intelligence & Sales Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            font-size: 2em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .category-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .category-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .category-description {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+
+        .repo-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .repo-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .repo-name:hover {
+            color: #3498db;
+        }
+
+        .repo-stars {
+            background: #f39c12;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .repo-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .repo-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .repo-language {
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .repo-category {
+            background: #27ae60;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .repo-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .topic-tag {
+            background: #ecf0f1;
+            color: #34495e;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+        }
+
+        .filters {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #ecf0f1;
+            color: #34495e;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .repos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 GitHub Modules for Business Intelligence & Sales Tools</h1>
+            <p>Comprehensive collection of ready-to-run modules for compliance audit, regulatory agents, dashboards, sales pipeline, presales process, and proposal preparation</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>8</h3>
+                <p>Categories</p>
+            </div>
+            <div class="stat-card">
+                <h3>35+</h3>
+                <p>Repositories</p>
+            </div>
+            <div class="stat-card">
+                <h3>10+</h3>
+                <p>Languages</p>
+            </div>
+            <div class="stat-card">
+                <h3>500K+</h3>
+                <p>Total Stars</p>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search repositories by name, description, or topics...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Categories</button>
+                <button class="filter-btn" data-category="compliance">Compliance & Audit</button>
+                <button class="filter-btn" data-category="dashboards">Dashboards & BI</button>
+                <button class="filter-btn" data-category="sales">Sales Pipeline</button>
+                <button class="filter-btn" data-category="presales">Presales Process</button>
+                <button class="filter-btn" data-category="proposals">Proposal Tools</button>
+                <button class="filter-btn" data-category="agents">Agent Factories</button>
+            </div>
+        </div>
+
+        <!-- Compliance & Audit Section -->
+        <div class="category-section" data-category="compliance">
+            <div class="category-header">
+                <h2>🔒 Compliance Audit & Regulatory Tools</h2>
+                <p class="category-description">Security compliance, audit automation, and regulatory reporting tools</p>
+            </div>
+            <div class="repos-grid">
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/OpenSCAP/openscap" class="repo-name" target="_blank">OpenSCAP</a>
+                        <span class="repo-stars">⭐ 1.2k</span>
+                    </div>
+                    <p class="repo-description">OpenSCAP is a collection of open source libraries providing an easier path for integration of the SCAP line of standards</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">C</span>
+                        <span class="repo-category">Compliance</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">compliance</span>
+                        <span class="topic-tag">security</span>
+                        <span class="topic-tag">audit</span>
+                        <span class="topic-tag">scap</span>
+                        <span class="topic-tag">regulatory</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/ComplianceAsCode/content" class="repo-name" target="_blank">ComplianceAsCode</a>
+                        <span class="repo-stars">⭐ 3.2k</span>
+                    </div>
+                    <p class="repo-description">Security compliance content for SCAP, Bash, Ansible, and other automation tools</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Compliance</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">compliance</span>
+                        <span class="topic-tag">security</span>
+                        <span class="topic-tag">scap</span>
+                        <span class="topic-tag">ansible</span>
+                        <span class="topic-tag">automation</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/falcosecurity/falco" class="repo-name" target="_blank">Falco</a>
+                        <span class="repo-stars">⭐ 7k</span>
+                    </div>
+                    <p class="repo-description">Cloud Native Runtime Security</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">C++</span>
+                        <span class="repo-category">Compliance</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">security</span>
+                        <span class="topic-tag">compliance</span>
+                        <span class="topic-tag">monitoring</span>
+                        <span class="topic-tag">runtime</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/open-policy-agent/opa" class="repo-name" target="_blank">OPA</a>
+                        <span class="repo-stars">⭐ 8k</span>
+                    </div>
+                    <p class="repo-description">Open Policy Agent (OPA) is an open source, general-purpose policy engine</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Go</span>
+                        <span class="repo-category">Compliance</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">policy</span>
+                        <span class="topic-tag">compliance</span>
+                        <span class="topic-tag">go</span>
+                        <span class="topic-tag">security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboards & BI Section -->
+        <div class="category-section" data-category="dashboards">
+            <div class="category-header">
+                <h2>📊 Dashboards & Business Intelligence</h2>
+                <p class="category-description">Interactive dashboards, data visualization, and business intelligence platforms</p>
+            </div>
+            <div class="repos-grid">
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/plotly/dash" class="repo-name" target="_blank">Dash</a>
+                        <span class="repo-stars">⭐ 18.5k</span>
+                    </div>
+                    <p class="repo-description">Analytical Web Apps for Python, R, Julia, and Jupyter. No JavaScript Required.</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Dashboards</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">dashboard</span>
+                        <span class="topic-tag">plotly</span>
+                        <span class="topic-tag">python</span>
+                        <span class="topic-tag">analytics</span>
+                        <span class="topic-tag">visualization</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/apache/superset" class="repo-name" target="_blank">Apache Superset</a>
+                        <span class="repo-stars">⭐ 55k</span>
+                    </div>
+                    <p class="repo-description">Apache Superset is a Data Visualization and Data Exploration Platform</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Dashboards</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">bi</span>
+                        <span class="topic-tag">dashboard</span>
+                        <span class="topic-tag">analytics</span>
+                        <span class="topic-tag">visualization</span>
+                        <span class="topic-tag">apache</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/metabase/metabase" class="repo-name" target="_blank">Metabase</a>
+                        <span class="repo-stars">⭐ 34k</span>
+                    </div>
+                    <p class="repo-description">The simplest, fastest way to get business intelligence and analytics to everyone in your company</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Clojure</span>
+                        <span class="repo-category">Dashboards</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">bi</span>
+                        <span class="topic-tag">analytics</span>
+                        <span class="topic-tag">dashboard</span>
+                        <span class="topic-tag">business-intelligence</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/grafana/grafana" class="repo-name" target="_blank">Grafana</a>
+                        <span class="repo-stars">⭐ 58k</span>
+                    </div>
+                    <p class="repo-description">The open and composable observability and data visualization platform</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Go</span>
+                        <span class="repo-category">Dashboards</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">monitoring</span>
+                        <span class="topic-tag">dashboard</span>
+                        <span class="topic-tag">visualization</span>
+                        <span class="topic-tag">observability</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sales Pipeline Section -->
+        <div class="category-section" data-category="sales">
+            <div class="category-header">
+                <h2>💼 Sales Pipeline & CRM Tools</h2>
+                <p class="category-description">Customer relationship management, sales automation, and pipeline tracking</p>
+            </div>
+            <div class="repos-grid">
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/odoo/odoo" class="repo-name" target="_blank">Odoo</a>
+                        <span class="repo-stars">⭐ 29.5k</span>
+                    </div>
+                    <p class="repo-description">Odoo. Open Source Apps To Grow Your Business.</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Sales</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">crm</span>
+                        <span class="topic-tag">erp</span>
+                        <span class="topic-tag">sales</span>
+                        <span class="topic-tag">business</span>
+                        <span class="topic-tag">management</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/salesagility/SuiteCRM" class="repo-name" target="_blank">SuiteCRM</a>
+                        <span class="repo-stars">⭐ 3.2k</span>
+                    </div>
+                    <p class="repo-description">SuiteCRM is the award-winning open source alternative to Salesforce</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">PHP</span>
+                        <span class="repo-category">Sales</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">crm</span>
+                        <span class="topic-tag">sales</span>
+                        <span class="topic-tag">php</span>
+                        <span class="topic-tag">business</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/salesforce/lightning" class="repo-name" target="_blank">Salesforce Lightning</a>
+                        <span class="repo-stars">⭐ 1.2k</span>
+                    </div>
+                    <p class="repo-description">Lightning is a component-based framework for building responsive web applications for mobile and desktop devices</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">JavaScript</span>
+                        <span class="repo-category">Sales</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">salesforce</span>
+                        <span class="topic-tag">lightning</span>
+                        <span class="topic-tag">components</span>
+                        <span class="topic-tag">ui</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presales Process Section -->
+        <div class="category-section" data-category="presales">
+            <div class="category-header">
+                <h2>🎯 Presales Process Management</h2>
+                <p class="category-description">Presales automation, workflow management, and qualification tools</p>
+            </div>
+            <div class="repos-grid">
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/HubSpot/hubspot-api-nodejs" class="repo-name" target="_blank">HubSpot CRM</a>
+                        <span class="repo-stars">⭐ 800</span>
+                    </div>
+                    <p class="repo-description">Node.js wrapper for the HubSpot API</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">JavaScript</span>
+                        <span class="repo-category">Presales</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">hubspot</span>
+                        <span class="topic-tag">crm</span>
+                        <span class="topic-tag">api</span>
+                        <span class="topic-tag">sales</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/forcedotcom/cli" class="repo-name" target="_blank">Salesforce DX</a>
+                        <span class="repo-stars">⭐ 1.2k</span>
+                    </div>
+                    <p class="repo-description">Salesforce CLI - Developer tool for Salesforce</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">TypeScript</span>
+                        <span class="repo-category">Presales</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">salesforce</span>
+                        <span class="topic-tag">cli</span>
+                        <span class="topic-tag">development</span>
+                        <span class="topic-tag">dx</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proposal Tools Section -->
+        <div class="category-section" data-category="proposals">
+            <div class="category-header">
+                <h2>📋 Proposal Preparation & Management</h2>
+                <p class="category-description">Document generation, e-signature integration, and proposal automation</p>
+            </div>
+            <div class="repos-grid">
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/docusign/docusign-node-client" class="repo-name" target="_blank">DocuSign</a>
+                        <span class="repo-stars">⭐ 400</span>
+                    </div>
+                    <p class="repo-description">DocuSign Node.js client library</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">JavaScript</span>
+                        <span class="repo-category">Proposals</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">docusign</span>
+                        <span class="topic-tag">esignature</span>
+                        <span class="topic-tag">api</span>
+                        <span class="topic-tag">documents</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/pandadoc/pandadoc-api-python" class="repo-name" target="_blank">Pandadoc</a>
+                        <span class="repo-stars">⭐ 150</span>
+                    </div>
+                    <p class="repo-description">PandaDoc API Python client</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Proposals</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">pandadoc</span>
+                        <span class="topic-tag">api</span>
+                        <span class="topic-tag">documents</span>
+                        <span class="topic-tag">proposals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Factories Section -->
+        <div class="category-section" data-category="agents">
+            <div class="category-header">
+                <h2>🤖 Agent Factory & Automation Tools</h2>
+                <p class="category-description">AI agents, automation frameworks, and intelligent workflow systems</p>
+            </div>
+            <div class="repos-grid">
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/langchain-ai/langchain" class="repo-name" target="_blank">LangChain</a>
+                        <span class="repo-stars">⭐ 65k</span>
+                    </div>
+                    <p class="repo-description">🦜🔗 Build context-aware reasoning applications</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Agents</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">ai</span>
+                        <span class="topic-tag">agents</span>
+                        <span class="topic-tag">llm</span>
+                        <span class="topic-tag">automation</span>
+                        <span class="topic-tag">langchain</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/microsoft/autogen" class="repo-name" target="_blank">AutoGen</a>
+                        <span class="repo-stars">⭐ 22k</span>
+                    </div>
+                    <p class="repo-description">AutoGen is a framework that enables the development of LLM applications using multiple agents that can converse with each other to solve tasks</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Agents</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">ai</span>
+                        <span class="topic-tag">agents</span>
+                        <span class="topic-tag">llm</span>
+                        <span class="topic-tag">automation</span>
+                        <span class="topic-tag">microsoft</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/joaomdmoura/crewAI" class="repo-name" target="_blank">CrewAI</a>
+                        <span class="repo-stars">⭐ 15k</span>
+                    </div>
+                    <p class="repo-description">CrewAI is a framework for orchestrating role-playing autonomous AI agents</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Agents</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">ai</span>
+                        <span class="topic-tag">agents</span>
+                        <span class="topic-tag">automation</span>
+                        <span class="topic-tag">crew</span>
+                        <span class="topic-tag">orchestration</span>
+                    </div>
+                </div>
+
+                <div class="repo-card">
+                    <div class="repo-header">
+                        <a href="https://github.com/Significant-Gravitas/AutoGPT" class="repo-name" target="_blank">AutoGPT</a>
+                        <span class="repo-stars">⭐ 155k</span>
+                    </div>
+                    <p class="repo-description">AutoGPT is the vision of accessible AI for everyone, to use and to build on</p>
+                    <div class="repo-meta">
+                        <span class="repo-language">Python</span>
+                        <span class="repo-category">Agents</span>
+                    </div>
+                    <div class="repo-topics">
+                        <span class="topic-tag">ai</span>
+                        <span class="topic-tag">agents</span>
+                        <span class="topic-tag">automation</span>
+                        <span class="topic-tag">autonomous</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>📊 Comprehensive collection of GitHub modules for business intelligence and sales automation</p>
+        <p>Ready to run and integrate into your business workflows</p>
+    </div>
+
+    <script>
+        // Search and filter functionality
+        const searchBox = document.getElementById('searchBox');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+
+        // Search functionality
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+            
+            filterRepositories(searchTerm, activeCategory);
+        });
+
+        // Filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const searchTerm = searchBox.value.toLowerCase();
+                const category = this.dataset.category;
+                
+                filterRepositories(searchTerm, category);
+            });
+        });
+
+        function filterRepositories(searchTerm, category) {
+            categorySections.forEach(section => {
+                const sectionCategory = section.dataset.category;
+                const repoCards = section.querySelectorAll('.repo-card');
+                
+                // Check if section should be shown based on category filter
+                const showSection = category === 'all' || sectionCategory === category;
+                
+                if (showSection) {
+                    let hasVisibleRepos = false;
+                    
+                    repoCards.forEach(card => {
+                        const name = card.querySelector('.repo-name').textContent.toLowerCase();
+                        const description = card.querySelector('.repo-description').textContent.toLowerCase();
+                        const topics = Array.from(card.querySelectorAll('.topic-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                        
+                        const matchesSearch = name.includes(searchTerm) || 
+                                            description.includes(searchTerm) || 
+                                            topics.includes(searchTerm);
+                        
+                        if (matchesSearch) {
+                            card.style.display = 'block';
+                            hasVisibleRepos = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Show/hide section based on whether it has visible repos
+                    section.style.display = hasVisibleRepos ? 'block' : 'none';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize with all categories visible
+        filterRepositories('', 'all');
+    </script>
+</body>
+</html>

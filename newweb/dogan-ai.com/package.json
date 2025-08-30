@@ -1,0 +1,51 @@
+{
+  "name": "dogan-ai-gaming",
+  "version": "3.0.0",
+  "description": "Dogan.AI Gaming Paradise with Advanced AI Features and Demos",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy:azure": "npm run build && node ../DEPLOYMENT/deploy-to-azure.js dogan-ai",
+    "deploy:docker": "docker build -t dogan-ai-gaming . && docker run -p 3001:3000 dogan-ai-gaming",
+    "test:gaming": "node ../DEPLOYMENT/test-deployment.js local dogan-ai.com"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.453.0",
+    "next": "^14.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "gaming",
+    "ai-agents",
+    "multi-domain",
+    "dogan-ai",
+    "magical",
+    "interactive",
+    "demos",
+    "advanced-features"
+  ],
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}

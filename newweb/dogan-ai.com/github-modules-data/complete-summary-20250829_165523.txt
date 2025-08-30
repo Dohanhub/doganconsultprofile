@@ -1,0 +1,22 @@
+﻿ADVANCED GITHUB MODULES SCRAPER - COMPLETE SUMMARY
+=================================================
+Timestamp: 08/29/2025 16:55:23
+Total Results: 1
+Categories Processed: compliance, proposals, agents, presales, dashboards, sales
+
+Results by Category:
+: 1 repos
+
+Results by Language:
+: 1 repos
+
+Top 20 Most Starred Repositories:
+- aws-samples/audit-manager-custom-security-frameworks (11 stars) - compliance
+
+Recently Updated (Last 30 days):
+- aws-samples/audit-manager-custom-security-frameworks (Updated: 2025-08-06T08:10:27Z)
+
+Output Files:
+- Complete Data: github-modules-data\complete-results-20250829_165523.json
+- Complete Summary: github-modules-data\complete-summary-20250829_165523.txt
+- Category-specific files in subdirectories
